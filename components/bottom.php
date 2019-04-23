@@ -1,6 +1,6 @@
 <footer class="site-footer">
       <div class="container">
-        
+
 
         <div class="row">
           <div class="col-md-4">
@@ -33,7 +33,7 @@
             </div>
           </div>
 
-          
+
           <div class="col-md-2">
             <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
               <div class="col-md-12">
@@ -55,7 +55,7 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -73,7 +73,8 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
 
-  
+
   <script src="js/mediaelement-and-player.min.js"></script>
 
   <script src="js/main.js"></script>
+  <script src="js/trickle/<?= $sScript ?>"></script>
