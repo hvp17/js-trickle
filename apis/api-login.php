@@ -65,7 +65,6 @@ session_start();
                  $sLoginAttemptQuery->bindValue(':bStatus', 0);
                  $sLoginAttemptQuery->bindValue(':sEmail', $_POST['txtEmail']);
                  $sLoginAttemptQuery->execute();
-                 echo 'hi';
 
              }catch(PDOException $exception){
                  echo '{ "status":33, "message":"YOU CANNOT LOGIN FORM ::login email first attempt"}';
