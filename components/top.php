@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Job Finder &mdash; Colorlib Website Template</title>
+    <title>Js Trickle &mdash; Colorlib Website Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,20 +15,20 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
-    
-    
-    
+
+
+
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-  
+
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
-    
+
   </head>
   <body>
-  
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -39,16 +39,16 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
-    
-    
+
+
     <div class="site-navbar-wrap js-site-navbar bg-white">
-      
+
       <div class="container">
         <div class="site-navbar bg-light">
           <div class="py-1">
             <div class="row align-items-center">
               <div class="col-2">
-                <h2 class="mb-0 site-logo"><a href="index.php">Job<strong class="font-weight-bold">Finder</strong> </a></h2>
+                <h2 class="mb-0 site-logo"><a href="index.php">Js<strong class="font-weight-bold">Trickle</strong> </a></h2>
               </div>
               <div class="col-10">
                 <nav class="site-navigation text-right" role="navigation">
@@ -86,5 +86,5 @@
         </div>
       </div>
     </div>
-  
+
     <div style="height: 113px;"></div>
