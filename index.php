@@ -6,6 +6,7 @@ require_once "components/top.php";
       <div class="container">
         <div class="row align-items-center">
           <div class="col-12" data-aos="fade">
+            <h1>Find Question</h1>
             <form action="#">
               <div class="row mb-3">
                 <div class="col-md-9">
@@ -44,18 +45,17 @@ require_once "components/top.php";
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
-          <div class="text-center mb-5 section-heading">
+          <div class="text-center col-md-12 section-heading">
             <h2>See Questions</h2>
+            <br>
           </div>
-          <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-12">
             <div class="text-center">
             <button class="bg-primary text-white py-3 px-4 rounded ">Recent Questions</button>
             <button class="bg-primary text-white py-3 px-4 rounded ">Recent Answers</button>
             <button class="bg-primary text-white py-3 px-4 rounded ">Popular Questions</button>
+          </div>
 
-
-
-            </div>
             <div class="rounded border jobs-wrap">
 
               <a href="job-single.php" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
