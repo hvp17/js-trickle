@@ -1,7 +1,6 @@
 <?php
 
 ///////    SYNTAX ERROR CHECK    ////////////
-error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ///////    END SYNTAX ERROR CHECK    ////////////
 
@@ -16,7 +15,7 @@ $hashed_password =  password_hash($password, PASSWORD_DEFAULT, $options);
   try{
     $iBlockedDate = time();
     $sQuery = $db->prepare('INSERT INTO users
-                            VALUES (null, :sUsername :sEmail, :sPassword, :bBlocked, :iBlockedDate)');
+                            VALUES (null, :sUsername, :sEmail, :sPassword, :bBlocked, :iBlockedDate)');
 
     $sQuery->bindValue(':sUsername', $_POST['txtUsername']);
     $sQuery->bindValue(':sEmail', $_POST['txtEmail']);
@@ -30,7 +29,6 @@ $hashed_password =  password_hash($password, PASSWORD_DEFAULT, $options);
       exit;
     }
   }catch( PDOException $e ){
-    var_dump($e);
     echo '{"status":0, "message":"error", "code":"001", "line":'.__LINE__.'}';
   }
 
