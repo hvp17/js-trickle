@@ -56,12 +56,12 @@
                     <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
-                      <li><a href="category.php">For Candidates</a></li>
-                      <li class="has-children">
-                        <a href="category.php">For Employees</a>
+                      <li><a href="category.php">Tags</a></li>
+                     <!-- <li class="has-children">
+                        <a href="category.php">Questions</a>
                         <ul class="dropdown arrow-top">
-                          <li><a href="category.php">Category</a></li>
-                          <li><a href="#">Browse Candidates</a></li>
+                          <li><a href="category.php">Tags</a></li>
+                          <li><a href="#"></a></li>
                           <li><a href="new-post.php">Post a Job</a></li>
                           <li><a href="#">Employeer Profile</a></li>
                           <li class="has-children">
@@ -74,9 +74,9 @@
                           </li>
 
                         </ul>
-                      </li>
-                      <li><a href="contact.php">Contact</a></li>
-                      <li><a href="new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Post New Job</span></a></li>
+                      </li>-->
+                      <li><a href="contact.php">Profile</a></li>
+                      <li><a href="new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Post Question</span></a></li>
                     </ul>
                   </div>
                 </nav>
