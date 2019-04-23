@@ -56,11 +56,11 @@
                     <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
-                      <li><a href="categories.php">For Candidates</a></li>
+                      <li><a href="category.php">For Candidates</a></li>
                       <li class="has-children">
-                        <a href="categories.php">For Employees</a>
+                        <a href="category.php">For Employees</a>
                         <ul class="dropdown arrow-top">
-                          <li><a href="categories.php">Category</a></li>
+                          <li><a href="category.php">Category</a></li>
                           <li><a href="#">Browse Candidates</a></li>
                           <li><a href="new-post.php">Post a Job</a></li>
                           <li><a href="#">Employeer Profile</a></li>
