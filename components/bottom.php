@@ -77,4 +77,8 @@
   <script src="js/mediaelement-and-player.min.js"></script>
 
   <script src="js/main.js"></script>
+  <?php
+  if(isset($sScript)){
+  ?>
   <script src="js/trickle/<?= $sScript ?>"></script>
+  <?php } ?>
