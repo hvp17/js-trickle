@@ -5,9 +5,6 @@ require_once "components/top.php";
     <div class="site-blocks-cover overlay" style="background-image: url('images/hero_1.jpg');" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center">
-          <div class="text-center mb-5 section-heading">
-            <h2>See Questions</h2>
-          </div>
           <div class="col-12" data-aos="fade">
             <form action="#">
               <div class="row mb-3">
@@ -47,6 +44,9 @@ require_once "components/top.php";
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
+          <div class="text-center mb-5 section-heading">
+            <h2>See Questions</h2>
+          </div>
           <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
             <div class="text-center">
             <button class="bg-primary text-white py-3 px-4 rounded ">Recent Questions</button>
