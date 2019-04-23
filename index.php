@@ -168,7 +168,7 @@ require_once "components/top.php";
             </div>
 
             <div class="col-md-12 text-center mt-5">
-              <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a>
+              <a href="tags.php" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Browse Tags</a>
             </div>
           </div>
        
