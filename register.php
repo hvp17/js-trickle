@@ -22,13 +22,13 @@ require_once "components/top.php";
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="Username">Username</label>
-                  <input type="text" id="Username" name="txtUsername" class="form-control" placeholder="eee">
+                  <input type="text" id="Username" name="txtUsername" class="form-control" value="eee">
                 </div>
               </div>
               <div class="row form-group mb-5">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="email">Email</label>
-                  <input type="text" id="email" name="txtEmail" class="form-control" placeholder="e@e.com">
+                  <input type="text" id="email" name="txtEmail" class="form-control" value="e@e.com">
                 </div>
               </div>
               <div class="row form-group mb-5">
