@@ -10,6 +10,7 @@ require_once "components/top.php";
     </div>
 
 
+    
 
 
     <div class="site-section bg-light">
@@ -35,7 +36,7 @@ require_once "components/top.php";
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Login" class="btn btn-primary  py-2 px-5">
+                  <button type="button" id="btnLogin" class="btn btn-primary  py-2 px-5">Login </button>
                 </div>
               </div>
 

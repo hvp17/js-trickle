@@ -53,52 +53,52 @@ session_start();
 
 
 
-     try{
+    //  try{
 
-                 /******************************
-                 :: login email first attempt
-                 *******************************/
-                 $sLoginAttemptQuery = $db->prepare('INSERT INTO login_attempts
-                  VALUES (null,  :iTime, :bStatus, :sEmail)');
+    //              /******************************
+    //              :: login email first attempt
+    //              *******************************/
+    //              $sLoginAttemptQuery = $db->prepare('INSERT INTO login_attempts
+    //               VALUES (null,  :iTime, :bStatus, :sEmail)');
 
-                 $sLoginAttemptQuery->bindValue(':iTime', time());
-                 $sLoginAttemptQuery->bindValue(':bStatus', 0);
-                 $sLoginAttemptQuery->bindValue(':sEmail', $_POST['txtEmail']);
-                 $sLoginAttemptQuery->execute();
+    //              $sLoginAttemptQuery->bindValue(':iTime', time());
+    //              $sLoginAttemptQuery->bindValue(':bStatus', 0);
+    //              $sLoginAttemptQuery->bindValue(':sEmail', $_POST['txtEmail']);
+    //              $sLoginAttemptQuery->execute();
 
-             }catch(PDOException $exception){
-                 echo '{ "status":33, "message":"YOU CANNOT LOGIN FORM ::login email first attempt"}';
-                 var_dump($exception);
-             }
+    //          }catch(PDOException $exception){
+    //              echo '{ "status":33, "message":"YOU CANNOT LOGIN FORM ::login email first attempt"}';
+    //              var_dump($exception);
+    //          }
 
+ 
+    //           try{
 
-              try{
+    //               /*******************************
+    //                   :: Check how many attempts
+    //               *******************************/
+    //                  $valid_attempts = time() - (5 * 60);
+    //                  $sCheckLoginAttempts = $db->prepare("SELECT time
+    //                                                      FROM login_attempts
+    //                                                      WHERE email = :sEmail AND
+    //                                                      status = 0 AND
+    //                                                      time > :iValidAttempts");
 
-                  /*******************************
-                      :: Check how many attempts
-                  *******************************/
-                     $valid_attempts = time() - (5 * 60);
-                     $sCheckLoginAttempts = $db->prepare("SELECT time
-                                                         FROM login_attempts
-                                                         WHERE email = :sEmail AND
-                                                         status = 0 AND
-                                                         time > :iValidAttempts");
+    //                  $sCheckLoginAttempts->bindValue(':sEmail', $_POST['txtEmail']);
+    //                  $sCheckLoginAttempts->bindValue(':iValidAttempts', $valid_attempts);
+    //                  $sCheckAtt = $sCheckLoginAttempts->execute();
+    //                  echo 'sweet';
+    //                  //if more than 3 block it
+    //                  if($sCheckAtt->rowCount() >= 3) {
+    //                     echo '{ "status":123, "message":"YOU ARE BLOCKED"}';
+    //                      echo 'U ARE BLOCKED';
+    //                      return;
+    //                  }
 
-                     $sCheckLoginAttempts->bindValue(':sEmail', $_POST['txtEmail']);
-                     $sCheckLoginAttempts->bindValue(':iValidAttempts', $valid_attempts);
-                     $sCheckAtt = $sCheckLoginAttempts->execute();
-                     echo 'sweet';
-                     //if more than 3 block it
-                     if($sCheckAtt->rowCount() >= 3) {
-                        echo '{ "status":123, "message":"YOU ARE BLOCKED"}';
-                         echo 'U ARE BLOCKED';
-                         return;
-                     }
-
-                     }catch(PDOException $exception){
-                     echo '{ "status":123, "message":"YOU CANNOT LOGIN FORM api-login"}';
-                     var_dump($exception);
-                     }
+    //                  }catch(PDOException $exception){
+    //                  echo '{ "status":123, "message":"YOU CANNOT LOGIN FORM api-login"}';
+    //                  var_dump($exception);
+    //                  }
 
  }catch(PDOException $exception){
      echo '{ "status":333, "message":"YOU CANNOT LOGIN FORM api-login"}';

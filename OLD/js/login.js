@@ -1,5 +1,7 @@
-/* trigger the click */
+/* trigger the c  lick */
+
 $(document).on('click', '#btnLogin', function(){
+  console.log('c')
 
   // validate--- FRONTEND VALIDATION---IF IT PASS THAN CHECK FOR THE BACKEND VALIDATION
   var sEmail = $("#txtEmail").val();
