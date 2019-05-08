@@ -10,7 +10,7 @@ require_once "components/top.php";
     </div>
 
 
-    
+
 
 
     <div class="site-section bg-light">
@@ -23,7 +23,7 @@ require_once "components/top.php";
               <div class="row form-group mb-5">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="email">Email</label>
-                  <input type="text" id="txtEmail" name="txtEmail" class="form-control" placeholder="a@a.com" value="e@e.com">
+                  <input type="text" id="txtEmail" name="txtEmail" class="form-control" value="ww@ww.com">
                 <div> to delete</div>
                 </div>
               </div>
@@ -39,6 +39,7 @@ require_once "components/top.php";
                 <div class="col-md-12">
                   <button type="button" id="btnLogin" class="btn btn-primary  py-2 px-5">Login </button>
                 </div>
+                <div class="error"></div>
               </div>
 
 
