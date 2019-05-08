@@ -11,7 +11,7 @@ ini_set('display_errors', 1);
       'cost'=> 5,
   ];
 $hashed_password =  password_hash($password, PASSWORD_DEFAULT, $options);
-  require_once '../db.php';
+require_once __DIR__.'../db.php';
   try{
     $iBlockedDate = time();
     $sQuery = $db->prepare('INSERT INTO users
@@ -23,7 +23,7 @@ $hashed_password =  password_hash($password, PASSWORD_DEFAULT, $options);
     $sQuery->bindValue(':bBlocked', 0);
     $sQuery->bindValue(':iBlockedDate', $iBlockedDate);
     $sQuery->execute();
-    
+
     if( $sQuery->rowCount() ){
       echo '{"status":1, "message":"success"}';
       exit;

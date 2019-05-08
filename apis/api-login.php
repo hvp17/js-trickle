@@ -2,15 +2,15 @@
 
 session_start();
 //VALIDATE BACKEND
-// if(
-//     empty($_POST['txtEmail']) ||
-//     empty($_POST['txtPassword']) ||
-//     !filter_var($_POST['txtEmail'], FILTER_VALIDATE_EMAIL) ||
-//     !(strlen($_POST['txtPassword']) >= 6 && strlen($_POST['txtPassword']) <= 20)
-//     ){
-//     echo '{"status":0, "message":"**********CANNOT LOGIN: Api-login error********"}';
-//     exit;
-//     }
+ if(
+     empty($_POST['txtEmail']) ||
+     empty($_POST['txtPassword']) ||
+     !filter_var($_POST['txtEmail'], FILTER_VALIDATE_EMAIL) ||
+     !(strlen($_POST['txtPassword']) >= 6 && strlen($_POST['txtPassword']) <= 20)
+     ){
+     echo '{"status":5, "message":"empty field ***CANNOT LOGIN***"}';
+     exit;
+     }
 
 
      //CONNECT TO DB

@@ -24,10 +24,10 @@
               <div class="col-md-6">
                 <h3 class="footer-heading mb-4 text-white">Categories</h3>
                   <ul class="list-unstyled">
-                    <li><a href="#">Full Time</a></li>
-                    <li><a href="#">Freelance</a></li>
-                    <li><a href="#">Temporary</a></li>
-                    <li><a href="#">Internship</a></li>
+                    <li><a href="#">Angular</a></li>
+                    <li><a href="#">JQuery</a></li>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">PHP</a></li>
                   </ul>
               </div>
             </div>
@@ -75,6 +75,8 @@
 
 
   <script src="js/mediaelement-and-player.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
   <script src="js/main.js"></script>
   <?php

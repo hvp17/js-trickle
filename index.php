@@ -56,9 +56,9 @@ require_once "components/top.php";
             <button class="bg-primary text-white py-3 px-4 rounded ">Popular Questions</button>
           </div>
 
-            <div class="rounded border jobs-wrap">
+            <div class="rounded border questions-wrap">
 
-              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
+              <!--<a href="question-single.php" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
                 </div>
@@ -79,7 +79,7 @@ require_once "components/top.php";
                 </div>
               </a>
 
-              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center freelance">
+              <a href="question-single.php" class="job-item d-block d-md-flex align-items-center freelance">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/logo_1.png" alt="Image" class="img-fluid mx-auto">
                 </div>
@@ -101,7 +101,7 @@ require_once "components/top.php";
               </a>
 
 
-              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center freelance">
+              <a href="question-single.php" class="job-item d-block d-md-flex align-items-center freelance">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/logo_1.png" alt="Image" class="img-fluid mx-auto">
                 </div>
@@ -123,7 +123,7 @@ require_once "components/top.php";
               </a>
 
 
-              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center fulltime">
+              <a href="question-single.php" class="job-item d-block d-md-flex align-items-center fulltime">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
                 </div>
@@ -144,7 +144,7 @@ require_once "components/top.php";
                 </div>
               </a>
 
-              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center partime">
+              <a href="question-single.php" class="job-item d-block d-md-flex align-items-center partime">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/logo_2.png" alt="Image" class="img-fluid mx-auto">
                 </div>
@@ -163,7 +163,7 @@ require_once "components/top.php";
                   </div>
                 </div>
               </a>
-
+-->
 
             </div>
 
@@ -171,7 +171,7 @@ require_once "components/top.php";
               <a href="tags.php" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Browse Tags</a>
             </div>
           </div>
-       
+
         </div>
       </div>
     </div>
@@ -179,6 +179,7 @@ require_once "components/top.php";
 
 
     <?php
+    $sScript = 'question.js';
     require_once "components/bottom.php";
     ?>
 

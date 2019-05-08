@@ -1,28 +1,36 @@
 <?php
+// check if the user is logged
+// not logged, take the user to the login page
+session_start();
+if( !$_SESSION['jUser'] ){
+  header('Location: login.php');
+  exit;
+}
+
 require_once "components/top.php";
 ?>
 
     <div class="unit-5 overlay" style="background-image: url('images/hero_1.jpg');">
       <div class="container text-center">
-        <h2 class="mb-0">Post a Job</h2>
-        <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
+        <h2 class="mb-0">Ask Question</h2>
+        <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Ask Question</span></p>
       </div>
     </div>
 
-    
-    
+
+
 
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
-       
+
           <div class="col-md-12 col-lg-8 mb-5">
-          
-            
-          
-            <form action="#" class="p-5 bg-white">
-              
-              <div class="row form-group">
+
+
+
+            <form class="p-5 bg-white" id="frmQuestion">
+
+              <!--div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label for="option-price-1">
                     <input type="checkbox" id="option-price-1"> <span class="text-success">$300</span> For 30 days
@@ -33,79 +41,98 @@ require_once "components/top.php";
                     <input type="checkbox" id="option-price-2"> <span class="text-success">$200</span> / Monthly Recurring
                   </label>
                 </div>
-              </div>
+              </div-->
 
+
+<!-----------------------------
+      ::QUESTION TITLE::
+-------------------------------->
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="fullname">Job Title</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="eg. Full Stack Frontend">
+                  <label class="font-weight-bold" for="txtTitle">Title</label>
+                  <input type="text" id="txtTitle" class="form-control" name="txtTitle" placeholder="eg. Full Stack Frontend" required>
                 </div>
               </div>
 
-              <div class="row form-group mb-5">
+              <!--div class="row form-group mb-5">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="fullname">Company</label>
                   <input type="text" id="fullname" class="form-control" placeholder="eg. Facebook, Inc.">
                 </div>
-              </div>
+              </div-->
 
-
+<!-----------------------------
+      ::QUESTION TYPE::
+-------------------------------->
               <div class="row form-group">
-                <div class="col-md-12"><h3>Job Type</h3></div>
+                <div class="col-md-12"><h3>Question Type</h3></div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-1">
-                    <input type="radio" id="option-job-type-1" name="job-type"> Full Time
+                  <label for="option-question-type-1">
+                    <input type="radio" id="option-question-type-1" class="question-type" name="txtType" value="1" required > I have a question about some code
                   </label>
                 </div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-2">
-                    <input type="radio" id="option-job-type-2" name="job-type"> Part Time
+                  <label for="option-question-type-2">
+                    <input type="radio" id="option-question-type-2" class="question-type" name="txtType" value="2" required> I need help with a homework problem
                   </label>
                 </div>
 
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-3">
-                    <input type="radio" id="option-job-type-3" name="job-type"> Freelance
+                  <label for="option-question-type-3">
+                    <input type="radio" id="option-question-type-3" class="question-type" name="txtType" value="3" required> I need a hardware recommendation
                 </div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-4">
-                    <input type="radio" id="option-job-type-4" name="job-type"> Internship
+                  <label for="option-question-type-4">
+                    <input type="radio" id="option-question-type-4" class="question-type" name="txtType" value="4" required> I need a software recommendation
                   </label>
                 </div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-4">
-                    <input type="radio" id="option-job-type-4" name="job-type"> Termporary
+                  <label for="option-question-type-5">
+                    <input type="radio" id="option-question-type-5" class="question-type" name="txtType" value="5" required> I need to troubleshoot some software or hardware
+                  </label>
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-question-type-6">
+                    <input type="radio" id="option-question-type-6" class="question-type" name="txtType" value="6" required> Other
                   </label>
                 </div>
 
               </div>
+
+<!-----------------------------
+      ::QUESTION TAGS::
+-------------------------------->
 
               <div class="row form-group mb-4">
-                <div class="col-md-12"><h3>Location</h3></div>
+                <div class="col-md-12"><h3>Tags</h3></div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <input type="text" class="form-control" placeholder="New York City">
+                  <input type="text" id="txtTags" name="txtTags" class="form-control" placeholder="e.g.(Javascript JQuery Angular)" required>
                 </div>
               </div>
 
+<!-----------------------------
+      ::QUESTION DESCRIPTION::
+-------------------------------->
+
               <div class="row form-group">
-                <div class="col-md-12"><h3>Job Description</h3></div>
+                <div class="col-md-12"><h3>Description</h3></div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                  <textarea id="txtDescription" name="txtDescription" class="form-control"  cols="30" rows="5" required></textarea>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Post a Job" class="btn btn-primary  py-2 px-5">
+                  <input type="submit" id="btnQuestion" value="Post a Question" class="btn btn-primary  py-2 px-5">
                 </div>
               </div>
 
-  
+
             </form>
           </div>
 
           <div class="col-lg-4">
-            <div class="p-4 mb-3 bg-white">
+            <!--div class="p-4 mb-3 bg-white">
               <h3 class="h5 text-black mb-3">Contact Info</h3>
               <p class="mb-0 font-weight-bold">Address</p>
               <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
@@ -116,8 +143,8 @@ require_once "components/top.php";
               <p class="mb-0 font-weight-bold">Email Address</p>
               <p class="mb-0"><a href="#">youremail@domain.com</a></p>
 
-            </div>
-            
+            </div-->
+
             <div class="p-4 mb-3 bg-white">
               <h3 class="h5 text-black mb-3">More Info</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur</p>
@@ -128,7 +155,7 @@ require_once "components/top.php";
       </div>
     </div>
 
-   
+
 
 
     <div class="site-section">
@@ -138,14 +165,14 @@ require_once "components/top.php";
             <h2>Frequently Ask Questions</h2>
           </div>
         </div>
-        
+
 
         <div class="row justify-content-center" data-aos="fade" data-aos-delay="100">
           <div class="col-md-8">
             <div class="accordion unit-8" id="accordion">
             <div class="accordion-item">
               <h3 class="mb-0 heading">
-                <a class="btn-block" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">What is the name of your company<span class="icon"></span></a>
+                <a class="btn-block" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">What is the Angular<span class="icon"></span></a>
               </h3>
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="body-text">
@@ -153,10 +180,10 @@ require_once "components/top.php";
                 </div>
               </div>
             </div> <!-- .accordion-item -->
-            
+
             <div class="accordion-item">
               <h3 class="mb-0 heading">
-                <a class="btn-block" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">How much pay for 3  months?<span class="icon"></span></a>
+                <a class="btn-block" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">How foreach an array in JQuery?<span class="icon"></span></a>
               </h3>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="body-text">
@@ -167,7 +194,7 @@ require_once "components/top.php";
 
             <div class="accordion-item">
               <h3 class="mb-0 heading">
-                <a class="btn-block" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">Do I need to register?  <span class="icon"></span></a>
+                <a class="btn-block" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">How does it work Javascript?  <span class="icon"></span></a>
               </h3>
               <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="body-text">
@@ -178,7 +205,7 @@ require_once "components/top.php";
 
             <div class="accordion-item">
               <h3 class="mb-0 heading">
-                <a class="btn-block" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour">Who should I contact in case of support.<span class="icon"></span></a>
+                <a class="btn-block" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour">Which is the main difference between JQuery and Javascript?<span class="icon"></span></a>
               </h3>
               <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="body-text">
@@ -190,21 +217,22 @@ require_once "components/top.php";
           </div>
           </div>
         </div>
-      
+
       </div>
     </div>
 
-    
 
 
-    
-      
+
+
+
     <?php
+    $sScript ='question.js';
     require_once "components/bottom.php";
     ?>
-    
 
-  <script>
+
+  <!--script>
       document.addEventListener('DOMContentLoaded', function() {
                 var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
 
@@ -297,4 +325,4 @@ require_once "components/top.php";
         async defer></script>
 
   </body>
-</html>
+</html-->

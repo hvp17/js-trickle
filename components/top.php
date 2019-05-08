@@ -21,13 +21,19 @@
 
 
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
 
+
   </head>
   <body>
+  <?php
+  session_start();
+  if ($_SESSION['jUser']){
+?>
 
   <div class="site-wrap">
 
@@ -58,25 +64,7 @@
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
                       <li><a href="tags.php">Tags</a></li>
                       <li><a href="wc.php">Weekly Challenges</a></li>
-                     <!-- <li class="has-children">
-                        <a href="category.php">Questions</a>
-                        <ul class="dropdown arrow-top">
-                          <li><a href="category.php">Tags</a></li>
-                          <li><a href="#"></a></li>
-                          <li><a href="new-post.php">Post a Job</a></li>
-                          <li><a href="#">Employeer Profile</a></li>
-                          <li class="has-children">
-                            <a href="#">More Links</a>
-                            <ul class="dropdown">
-                              <li><a href="#">Browse Candidates</a></li>
-                              <li><a href="#">Post a Job</a></li>
-                              <li><a href="#">Employeer Profile</a></li>
-                            </ul>
-                          </li>
-
-                        </ul>
-                      </li>-->
-                      <li><a href="contact.php">Profile</a></li>
+                      <!--li><a href="contact.php">Profile</a></li-->
                       <li><a href="new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Post Question</span></a></li>
                     </ul>
                   </div>
@@ -89,3 +77,56 @@
     </div>
 
     <div style="height: 113px;"></div>
+
+<?php
+  }else{
+?>
+
+<div class="site-wrap">
+
+<div class="site-mobile-menu">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div> <!-- .site-mobile-menu -->
+
+
+<div class="site-navbar-wrap js-site-navbar bg-white">
+
+  <div class="container">
+    <div class="site-navbar bg-light">
+      <div class="py-1">
+        <div class="row align-items-center">
+          <div class="col-2">
+            <h2 class="mb-0 site-logo"><a href="index.php">Js<strong class="font-weight-bold">Trickle</strong> </a></h2>
+          </div>
+          <div class="col-10">
+            <nav class="site-navigation text-right" role="navigation">
+              <div class="container">
+                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                <ul class="site-menu js-clone-nav d-none d-lg-block">
+                  <li><a href="tags.php">Tags</a></li>
+                  <li><a href="wc.php">Weekly Challenges</a></li>
+                  <!--li><a href="contact.php">Profile</a></li-->
+                  <li><a href="login.php"><span class="bg-primary text-white py-3 px-4 rounded"><i class="fas fa-user"></i>Login</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height: 113px;"></div>
+
+
+
+<?php
+  }
+?>

@@ -24,7 +24,6 @@ require_once "components/top.php";
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="email">Email</label>
                   <input type="text" id="txtEmail" name="txtEmail" class="form-control" value="ww@ww.com">
-                <div> to delete</div>
                 </div>
               </div>
               <div class="row form-group mb-5">
@@ -36,8 +35,11 @@ require_once "components/top.php";
 
 
               <div class="row form-group">
-                <div class="col-md-12">
+                <div class="col-md-12 text-center">
                   <button type="button" id="btnLogin" class="btn btn-primary  py-2 px-5">Login </button>
+                </div>
+                <div class="col-md-12 text-center">
+                  <p>Don't you have an account?<a href="register.php">Signup</a></p>
                 </div>
                 <div class="error"></div>
               </div>
@@ -154,7 +156,7 @@ require_once "components/top.php";
     </script>
 
    <!--  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&libraries=places&callback=initAutocomplete"
-        async defer></script> -->
+        async defer></script>
 
   </body>
-</html>
+</html>-->
