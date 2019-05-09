@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once "components/top.php";
+
 ?>
 
     <div class="site-blocks-cover overlay" style="background-image: url('images/hero_1.jpg');" data-aos="fade" data-stellar-background-ratio="0.5">

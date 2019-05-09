@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+//CONNECT TO GENERATE AND CHECK THE RANDOM TOKEN
+//AGAINS CSRF ATTACK
+require_once __DIR__.'/../class/token.php';
+
 //VALIDATE BACKEND
  if(
      empty($_POST['txtEmail']) ||
@@ -10,7 +14,15 @@ session_start();
      ){
      echo '{"status":5, "message":"empty field ***CANNOT LOGIN***"}';
      exit;
+     }else{
+      if(Token::check($_POST['token'])){
+        echo '{"token":"login_secure",';
+      }else{
+        echo '{"token":"login_NOT_secure"}';
+          exit;
+      }
      }
+
 
 
      //CONNECT TO DB
@@ -30,7 +42,7 @@ session_start();
       exit;
     }
      $_SESSION['loginAttempt'] = $_SESSION['loginAttempt'] + 1;
-     echo '{"AttemptStatus":0, "message":"session is counting", "attempts":'.$_SESSION['loginAttempt'].',';
+     echo '"AttemptStatus":0, "message":"session is counting", "attempts":'.$_SESSION['loginAttempt'].',';
 
 
 
@@ -100,6 +112,11 @@ if(count($aUsers)){
   //if input passw = db hashed password
   if(password_verify($password, $pass)){
       $_SESSION['jUser'] = $aUsers[0];
+      //CHECK TIME OF LOGIN FOR AUTOMATIC LOGOUT AFTER
+      //15 MINUTES IF NOT INTERACTING WITH WEBSITE:
+      //THE CHECK HAPPEN IN "new-post.php"
+        $_SESSION['last_login_timestamp'] = time();
+
       $current_time = time();
       echo '"status":1, "message":"login success from api"}';
 

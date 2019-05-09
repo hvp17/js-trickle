@@ -32,9 +32,14 @@ $(document).on('click', '#btnLogin', function (e) {
   }).always(function (jData) {
     console.log(jData);
 
-    if (jData.status === 1) {
+    if (jData.status === 1 && jData.token === 'login_secure') {
       document.location.href = "new-post.php"
       return;
+    } else {
+      if (jData.token === 'login_NOT_secure') {
+        document.location.href = "login.php"
+        return;
+      }
     }
 
     if (jData["loginLimit"] === "reached" && jData.status === 123) {

@@ -65,7 +65,7 @@
                       <li><a href="tags.php">Tags</a></li>
                       <li><a href="wc.php">Weekly Challenges</a></li>
                       <!--li><a href="contact.php">Profile</a></li-->
-                      <li><a href="new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Post Question</span></a></li>
+                      <li><a href="new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Ask Question</span></a></li>
                     </ul>
                   </div>
                 </nav>
