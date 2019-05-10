@@ -1,7 +1,9 @@
 /* trigger the click */
-$("#frmLogin").submit(function(e) {
-  // validate--- FRONTEND VALIDATION---IF IT PASS THAN CHECK FOR THE BACKEND VALIDATION
+$(document).on('click', '#btnLogin', function (e) {
+  e.preventDefault();
+
   var sEmail = $("#txtEmail").val();
+  console.log("sEmail ", sEmail);
   var sPassword = $("#txtPassword").val();
 
   $("#invalidEmail", "#invalidPassword").hide();
@@ -27,13 +29,23 @@ $("#frmLogin").submit(function(e) {
     method: "POST",
     data: $("#frmLogin").serialize(),
     dataType: "JSON"
-  }).always(function(jData) {
+  }).always(function (jData) {
     console.log(jData);
 
-    if (jData["loginLimit"] === "reached" && jData.status === 222) {
+    if (jData.status === 1 && jData.token === 'login_secure') {
+      document.location.href = "new-post.php"
+      return;
+    } else {
+      if (jData.token === 'login_NOT_secure') {
+        document.location.href = "login.php"
+        return;
+      }
+    }
+
+    if (jData["loginLimit"] === "reached" && jData.status === 123) {
       $(".error").append(`Too many login ATTEMPTS...Please wait for 5 minutes`);
 
-      setTimeout(function() {
+      setTimeout(function () {
         document.location.href = "apis/api-logout.php";
       }, 3000);
       return;
