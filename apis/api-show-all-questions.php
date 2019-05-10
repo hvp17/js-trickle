@@ -13,7 +13,7 @@ function _e($string){
 
 try{
 
-        $sQuery = $db->prepare("SELECT * FROM `show_all_questions`");
+        $sQuery = $db->prepare("SELECT * FROM `show_questions`");
         $sQuery->execute();
         $aQuestions=$sQuery->fetchAll();
 
