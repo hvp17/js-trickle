@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 10, 2019 at 11:02 AM
+-- Generation Time: May 10, 2019 at 01:44 PM
 -- Server version: 5.7.23
 -- PHP Version: 5.6.37
 
@@ -61,12 +61,9 @@ CREATE TABLE `levels` (
 --
 
 INSERT INTO `levels` (`id`, `name`) VALUES
-(1, 'I have a question about some code'),
-(2, 'I need help with a homework problem'),
-(3, 'I need a hardware recommendation'),
-(4, 'I need a software recommendation'),
-(5, 'I need to troubleshoot some software or hardware'),
-(6, 'Other');
+(1, 'Beginner'),
+(2, 'Intermediate'),
+(3, 'Expert');
 
 -- --------------------------------------------------------
 
@@ -566,7 +563,8 @@ INSERT INTO `login_attempts` (`id`, `time`, `status`, `email`) VALUES
 (509, 1557475928, 1, 'ww@ww.com'),
 (510, 1557475944, 0, 'wrrrr@ww.com'),
 (511, 1557476003, 0, 'wwrrrrrrrrr@ww.com'),
-(512, 1557477215, 1, 'Arg@Arg.com');
+(512, 1557477215, 1, 'Arg@Arg.com'),
+(513, 1557481707, 1, 'Arg@Arg.com');
 
 -- --------------------------------------------------------
 
@@ -589,16 +587,13 @@ CREATE TABLE `questions` (
 
 INSERT INTO `questions` (`id`, `user_fk`, `title`, `level_fk`, `description`, `date`) VALUES
 (2, 42, 'Ajax::problem', 1, 'My problem is that every time I bla bla bla', '2019-05-09 14:39:57'),
-(3, 42, 'JQuery::problem', 6, 'in this field i write a description of my problem', '2019-05-09 14:40:05'),
-(11, 42, 'Javascript::ISSUE', 6, 'I must tell you that in this field i\'m wondering to write a short description of my problem.', '2019-05-09 14:40:19'),
-(13, 42, 'Angular::NOT CLEAR', 5, 'I Have this huge problem where... I must tell you that in this field i\'m wondering to write a short description of my problem.', '2019-05-09 14:40:27'),
+(3, 42, 'JQuery::problem', 2, 'in this field i write a description of my problem', '2019-05-10 09:07:04'),
+(11, 42, 'Javascript::ISSUE', 2, 'I must tell you that in this field i\'m wondering to write a short description of my problem.', '2019-05-10 09:07:01'),
+(13, 42, 'Angular::NOT CLEAR', 3, 'I Have this huge problem where... I must tell you that in this field i\'m wondering to write a short description of my problem.', '2019-05-10 09:06:36'),
 (14, 42, 'tit', 2, 'dfgadgdgfadfaadf', '2019-05-09 14:40:37'),
 (15, 42, '<script>alert(\'under attack\')</script>', 2, 'under attack!', '2019-05-09 14:40:39'),
-(16, 42, '<script>alert(\'under attack\')</script>', 5, '<script>alert(\'under attack\')</script>', '2019-05-09 14:40:43'),
-(17, 42, '<script>alert(\'under attack\')</script>', 5, 'blablabla', '2019-05-09 14:40:45'),
-(26, 42, 'bam!', 5, 'hsdjhsdjhjds', '2019-05-10 08:04:20'),
-(27, 42, 'bam!', 4, 'bla', '2019-05-10 08:04:59'),
-(28, 42, 'dshdsjhsdhj', 5, 'hsdjhdsjhdsfjh', '2019-05-10 08:05:38');
+(16, 42, '<script>alert(\'under attack\')</script>', 3, '<script>alert(\'under attack\')</script>', '2019-05-10 09:06:32'),
+(28, 42, 'dshdsjhsdhj', 3, 'hsdjhdsjhdsfjh', '2019-05-10 09:06:57');
 
 -- --------------------------------------------------------
 
@@ -811,7 +806,7 @@ ALTER TABLE `likes_questions`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=513;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=514;
 
 --
 -- AUTO_INCREMENT for table `questions`
