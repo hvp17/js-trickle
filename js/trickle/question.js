@@ -34,7 +34,8 @@ $('#frmQuestion').submit(function (e) {
         data: $('#frmQuestion').serialize(),
         dataType: "JSON"
     }).always(function (jData) {
-        //console.log(jData)
+        console.log(jData)
+
         if (jData.status === 1) {
             swal({
                 title: "Good job!",
@@ -154,4 +155,64 @@ $(document).ready(function () {
 
 
     })
+})
+
+
+
+/*****************************************************
+ ::TAGS
+ ******************************************************/
+
+/* $('.add-tags').on('keydown', function (e) {
+    //which == KeyCode
+    //console.log(e.which)
+    if (e.which === 32) {
+        //The trim() method removes whitespace from both sides of a string
+        var tag = $.trim($('.add-tags').val());
+        if (tag.length < 2) {
+            return false;
+        }
+        var tagHTML = '<span class="tags" id="' + tag + '">' + tag + '<span class="close"></span></span></span>'
+        $('.tags-wrapper').append(tagHTML)
+        $('.add-tags').val('');
+    }
+}) */
+
+$('#txtTags').on('change', function (e) {
+    var tagId = $(this).children("option:selected").val();
+    var tag = $(this).children("option:selected").text();
+
+    var tagHTML = '<span class="tags" id="' + tag + '">' + tag + '<span class="close"></span></span></span>'
+    $('.tags-wrapper').append(tagHTML)
+    var t = $('.tags-wrapper').text()
+    var array = [];
+    /* $('.tags-wrapper').each(function () {
+        array.push({
+            content: $(this).text(),
+            id: $(this).children().attr('id')
+        })
+        $(document).on('click', '#btnQuestion', function () {
+
+            console.log("array ", array);
+            $.ajax({
+                url: "apis/api-insert-question.php",
+                method: "POST",
+                data: {
+                    array: array
+                },
+                dataType: "JSON"
+            }).always(function (jData) {
+                console.log("jData ", jData);
+
+            })
+        })
+
+
+
+    }) */
+
+})
+
+$(document).on('click', '.close', function () {
+    $(this).closest("span.tags").remove();
 })
