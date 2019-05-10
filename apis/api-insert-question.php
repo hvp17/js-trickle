@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ///////    END SYNTAX ERROR CHECK    ////////////
 if (
   empty($_POST['txtTitle']) ||
-  empty($_POST['txtType']) ||
+  empty($_POST['txtLevel']) ||
   empty($_POST['txtDescription'])
 ) {
   echo '{"status":5, "message":"empty field ***CANNOT INSERT***"}';
@@ -17,11 +17,11 @@ require_once __DIR__ . '/../db.php';
 // $db->beginTransaction();
 try {
   $sQuery = $db->prepare('INSERT INTO questions
-                            VALUES (null, :iUserFK, :sTitle, :iTypeFK, :sDescription, null)');
+                            VALUES (null, :iUserFK, :sTitle, :iLevelFK, :sDescription, null)');
 
   $sQuery->bindValue(':iUserFK', $_SESSION['jUser']['id']);
   $sQuery->bindValue(':sTitle', $_POST['txtTitle']);
-  $sQuery->bindValue(':iTypeFK', $_POST['txtType']);
+  $sQuery->bindValue(':iLevelFK', $_POST['txtLevel']);
   $sQuery->bindValue(':sDescription', $_POST['txtDescription']);
   $sQuery->execute();
   //$iQuestion = $db->lastInsertId();
