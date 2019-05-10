@@ -111,7 +111,7 @@ $(document).ready(function () {
 *******************************************************************************/
 $(document).ready(function () {
     $.ajax({
-        url: "apis/api-show-all-questions.php", //"mysql/apis/api-admin-read-sneakers.php",
+        url: "apis/api-show-all-questions.php",
         dataType: "JSON"
     }).always(function (jData) {
         console.log("jData ", jData);
@@ -119,25 +119,28 @@ $(document).ready(function () {
         $.each(jData, function (i, item) {
             $('.questions-wrap').append(`
 
-            <a href="question-single.php?id=${jData[i]['id']}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
-            <div class="company-logo blank-logo text-center text-md-left pl-3">
-                <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
-            </div>
-            <div class="job-details h-100">
-            <div class="p-3 align-self-center">
-                <h3>${escapeHtml(jData[i]['title'])}</h3>
 
-            <p class="description">
-                ${escapeHtml(jData[i]['description'])}
-            </p>
+                  <a href="question-single.php?id=${escapeHtml(jData[i]['id'])}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
+    <div class="company-logo blank-logo text-center text-md-left pl-3">
+      <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
+    </div>
+    <div class="question-details h-100">
+      <div class="p-3 align-self-center">
+        <h3>${escapeHtml(jData[i]['title'])}</h3>
+
+              <p class="description">
+                  ${escapeHtml(jData[i]['description'])}
+              </p>
 
 
-            <div class="d-block d-lg-flex">
-                <div class="mr-3"><i class="fas fa-user"></i> ${escapeHtml(jData[i]['username'])}</div>
-                <div><i class="fas fa-calendar-day"></i> ${escapeHtml(jData[i]['date'])}</div>
-                <div class="mr-3"><i class="fas fa-asterisk"></i> ${escapeHtml(jData[i]['levels_name'])}</div>
-             </div>
-            </div>
+        <div class="d-block flex-column">
+          <div class="mr-3"><i class="fas fa-user"></i> ${escapeHtml(jData[i]['username'])}</div>
+          <div><i class="fas fa-calendar-day"></i> ${escapeHtml(jData[i]['date'])}</div>
+          <div class="mr-3"><i class="fas fa-asterisk"></i> ${escapeHtml(jData[i]['levels_name'])}</div>
+
+        </div>
+      </div>
+
     </div>
     <div class="job-category align-self-center">
       <div class="p-3">
@@ -162,7 +165,7 @@ $(document).ready(function () {
  ::TAGS
  ******************************************************/
 
-/* $('.add-tags').on('keydown', function (e) {
+$('.add-tags').on('keydown', function (e) {
     //which == KeyCode
     //console.log(e.which)
     if (e.which === 32) {
@@ -175,7 +178,7 @@ $(document).ready(function () {
         $('.tags-wrapper').append(tagHTML)
         $('.add-tags').val('');
     }
-}) */
+})
 
 $('#txtTags').on('change', function (e) {
     var tagId = $(this).children("option:selected").val();

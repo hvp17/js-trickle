@@ -76,7 +76,9 @@ require_once "components/top.php";
 -------------------------------->
           <div class="row form-group">
             <div class="col-md-12">
+
               <h3>User level</h3>
+
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
               <label for="option-user-level-1">
@@ -93,7 +95,7 @@ require_once "components/top.php";
               <label for="option-user-level-3">
                 <input type="radio" id="option-user-level-3" class="user-level" name="txtLevel" value="3" required> Expert
             </div>
-            
+
           </div>
 
           <!-----------------------------
@@ -108,14 +110,14 @@ require_once "components/top.php";
               <span class="tags-wrapper" id="tagsArray">
                 <!--                 <span class="tags">Javascript<span class="close"></span></span>
  --> </span>
-              <!--               <input type="text" id="txtTags" name="txtTags" class="form-control add-tags" placeholder="e.g.(Javascript JQuery Angular)">
- -->
-              <select id="txtTags" name="txtTags[]">
+              <input type="text" id="txtTags" name="txtTags" class="form-control add-tags" placeholder="e.g.(Javascript JQuery Angular)">
+
+              <!--  <select id="txtTags" name="txtTags[]">
                 <option class="add-tags" value="1">Javascript</option>
                 <option class="add-tags" value="2">JQuery</option>
                 <option class="add-tags" value="3">Angular</option>
                 <option class="add-tags" value="4">Ajax</option>
-              </select>
+              </select> -->
             </div>
           </div>
 

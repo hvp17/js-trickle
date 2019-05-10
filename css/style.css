@@ -1426,6 +1426,11 @@ p.description {
   white-space: nowrap;
 }
 
+.question-details {
+  max-width: 70%;
+  width: 70%;
+}
+
 
 /***********************************************
 ::TAGS
