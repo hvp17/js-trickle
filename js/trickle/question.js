@@ -119,6 +119,7 @@ $(document).ready(function () {
         $.each(jData, function (i, item) {
             $('.questions-wrap').append(`
 
+
                   <a href="question-single.php?id=${escapeHtml(jData[i]['id'])}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
     <div class="company-logo blank-logo text-center text-md-left pl-3">
       <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
@@ -139,6 +140,7 @@ $(document).ready(function () {
 
         </div>
       </div>
+
     </div>
     <div class="job-category align-self-center">
       <div class="p-3">

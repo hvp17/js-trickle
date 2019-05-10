@@ -18,6 +18,7 @@ try {
   $sQuery->execute();
   $aQuestions = $sQuery->fetchAll();
 
+
   echo json_encode($aQuestions);
 } catch (PDOException $e) {
   echo '{"status":0, "message":"error to signUp", "code":"001"' . $e . '}';
