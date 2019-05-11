@@ -177,7 +177,7 @@ $(document).ready(function () {
 *******************************************************************************/
 $(document).ready(function () {
     $.ajax({
-        url: "apis/api-show-all-questions.php", //"mysql/apis/api-admin-read-sneakers.php",
+        url: "apis/api-show-all-questions.php",
         dataType: "JSON"
     }).always(function (jData) {
         console.log("jData ", jData);
