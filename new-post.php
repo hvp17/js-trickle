@@ -129,7 +129,7 @@ require_once "components/top.php";
 
           <div class="row form-group">
             <div class="col-md-12">
-              <input type="submit" id="btnQuestion" value="Post a Question" class="btn btn-primary  py-2 px-5">
+              <button type="button" id="btnQuestion" class="btn btn-primary  py-2 px-5">Submit Question</button>
             </div>
           </div>
 

@@ -68,36 +68,20 @@ $(document).on('click', '.close', function () {
 /*******************************************************************************
                                 ::INSERT QUESTION
 ********************************************************************************/
-$('#frmQuestion').submit(function (e) {
+$(document).on('click', '#btnQuestion', function() {
+    var numberOfTags = $('.active').length
+    if(!numberOfTags>0){
+        console.log('der skal være minimum 1 tag')
+    }else{
+        var tags = $('#tagsArray').find('.active').map(function(){ 
+            return $(this).text(); 
+            }).get().join(',') }
+            console.log(tags)
 
-
-
-/*****************************************************
- ::TAGS
- ******************************************************/
-
-$('#txtTags').on('change', 'select', function () {
-    //var tag = $(this).children("option:selected").text();
-   // console.log(tag, 'taag')
-    console.log('hi')
-   /*  var tagHTML = '<span class="tag" id="' + tag + '">' + tag + '<span class="close"></span></span>'
-    $('.tags-wrapper').append(tagHTML) */
- 
-
-})
-
-
-
-
-
-
-
-
-    e.preventDefault()
     $.ajax({
         url: "apis/api-insert-question.php",
         method: "POST",
-        data: $('#frmQuestion').serialize(),
+        data: $('#frmQuestion').serialize()+`&txtTags=${tags}`,
         dataType: "JSON"
     }).always(function (jData) {
         console.log(jData)
