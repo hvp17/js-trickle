@@ -167,6 +167,7 @@ $(document).ready(function () {
         console.log("jData ", jData);
         //${jData[i]['sneaker_id']}
         $.each(jData, function (i, item) {
+            console.log(jData[i], 'hej')
             $('.questions-wrap').append(`
                 <a href="question-single.php?id=${jData[i]['id']}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
                     <div class="company-logo blank-logo text-center text-md-left pl-3">
@@ -176,18 +177,18 @@ $(document).ready(function () {
                         <div class="p-3 align-self-center">
                             <h3>${escapeHtml(jData[i]['title'])}</h3>
                             <p class="description">
-                                ${escapeHtml(jData[i]['description'])}
+                                ${escapeHtml(jData[i]['question'])}
                             </p>
                             <div class="d-block d-lg-flex">
                                 <div class="mr-3"><i class="fas fa-user"></i> ${escapeHtml(jData[i]['username'])}</div>
                                 <div><i class="fas fa-calendar-day"></i> ${escapeHtml(jData[i]['date'])}</div>
-                                <div class="mr-3"><i class="fas fa-asterisk"></i> ${escapeHtml(jData[i]['levels_name'])}</div>
+                                <div class="mr-3"><i class="fas fa-asterisk"></i> ${escapeHtml(jData[i]['level'])}</div>
                             </div>
                         </div>
                     </div>
                     <div class="job-category align-self-center">
                         <div class="p-3">
-                            <span class="text-info p-2 rounded border border-info">Tags</span>
+                            <span class="text-info p-2 rounded border border-info tags">${escapeHtml(jData[i]['tags'])}</span>
                         </div>
                     </div>
                 </a>
