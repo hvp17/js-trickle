@@ -81,9 +81,13 @@
 <script src="js/mediaelement-and-player.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
-
 <script src="js/main.js"></script>
+<!-- PROFILE -->
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+
+<!-- end PROFILE -->
 <?php
 if (isset($sScript)) {
   ?>

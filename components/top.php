@@ -23,6 +23,18 @@
 
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <!--   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ -->
+  <!-- PROFILE ---------->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300">
+  <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+ -->
+  <!------ end PROFILE ---------->
+
+
+
+
+
 
   <link rel="stylesheet" href="css/aos.css">
 
@@ -71,7 +83,7 @@
 
 
                         <!--                         <li><a href="new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Ask Question</span></a></li>
-   -->
+                   -->
                         <li><a href="new-post.php"><button class="btn btn-primary text-white">
                               <span class="icon-plus mr-3"></span>Ask Question
                             </button></a></li>
@@ -89,10 +101,10 @@
                             </ul>
                           </div>
                           <!--a href="logout.php">
-                            <span class="bg-primary text-white py-3 px-4 rounded">
-                              <i class="fas fa-user"></i>Logout
-                            </span>
-                          </a-->
+                                            <span class="bg-primary text-white py-3 px-4 rounded">
+                                              <i class="fas fa-user"></i>Logout
+                                            </span>
+                                          </a-->
                         </li>
                       </ul>
                     </div>
@@ -150,7 +162,7 @@
                               </button>
                               <ul class="dropdown-menu">
                                 <li><a href="login.php">Login</a></li>
-                                <li><a href="signup.php">Register</a></li>
+                                <li><a href="register.php">Register</a></li>
                               </ul>
                             </div>
 
