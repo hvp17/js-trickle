@@ -7,7 +7,7 @@ if (!$_SESSION['jUser']) {
   exit;
 } else {
   //AUTOMATIC LOGOUT AFTER 15 MINUTES
-  if ((time() - $_SESSION['last_login_timestamp']) > 900) //900 = 15*60
+  if ((time() - $_SESSION['last_login_timestamp']) > 90000) //900 = 15*60
   {
     header('Location: logout.php');
     exit;
@@ -92,6 +92,7 @@ require_once "components/top.php";
             <div class="col-md-12 mb-3 mb-md-0">
               <label for="option-user-level-3">
                 <input type="radio" id="option-user-level-3" class="user-level" name="txtLevel" value="3" required> Expert
+                </label>
             </div>
             
           </div>
@@ -105,19 +106,11 @@ require_once "components/top.php";
               <h3>Tags</h3>
             </div>
             <div class="col-md-12 mb-3 mb-md-0 tags-container">
-              <span class="tags-wrapper" id="tagsArray">
-                <!--                 <span class="tags">Javascript<span class="close"></span></span>
- --> </span>
-              <!--               <input type="text" id="txtTags" name="txtTags" class="form-control add-tags" placeholder="e.g.(Javascript JQuery Angular)">
- -->
-              <select id="txtTags" name="txtTags[]">
-                <option class="add-tags" value="1">Javascript</option>
-                <option class="add-tags" value="2">JQuery</option>
-                <option class="add-tags" value="3">Angular</option>
-                <option class="add-tags" value="4">Ajax</option>
-              </select>
+              <div class="tags-wrapper" id="tagsArray"></div>
             </div>
           </div>
+              <div id="txtTags" name="txtTags">
+              </div>
 
           <!-----------------------------
       ::QUESTION DESCRIPTION::
@@ -125,7 +118,7 @@ require_once "components/top.php";
 
           <div class="row form-group">
             <div class="col-md-12">
-              <h3>Description</h3>
+              <h3>Question</h3>
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
               <textarea id="txtDescription" name="txtDescription" class="form-control" cols="30" rows="5" required></textarea>
