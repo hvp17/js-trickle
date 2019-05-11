@@ -25,7 +25,7 @@ require_once __DIR__ . '/class/token.php';
           <div class="row form-group mb-5">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="email">Email</label>
-              <input type="text" id="txtEmail" name="txtEmail" class="form-control" value="Arg@Arg.com">
+              <input type="text" id="txtEmail" name="txtEmail" class="form-control" value="eeee@eeee.com">
             </div>
           </div>
           <div class="row form-group mb-5">

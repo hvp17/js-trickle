@@ -24,13 +24,13 @@ $options = [
   'cost' => 5,
 ];
 $hashed_password =  password_hash($password, PASSWORD_DEFAULT, $options);
-require_once __DIR__ . '../db.php';
+require_once __DIR__ . '/../db.php';
 try {
   $iBlockedDate = time();
   $sQuery = $db->prepare('INSERT INTO users
                             VALUES (null, :sImg,:sUsername, :sEmail, :sPassword, :bBlocked, :iBlockedDate)');
 
-  $sQuery->bindValue(':sImg', 'http://img.com');
+  $sQuery->bindValue(':sImg', 'avatar.jpg');
   $sQuery->bindValue(':sUsername', $_POST['txtUsername']);
   $sQuery->bindValue(':sEmail', $_POST['txtEmail']);
   $sQuery->bindValue(':sPassword', $hashed_password);
