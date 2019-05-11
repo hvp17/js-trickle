@@ -68,7 +68,32 @@
                         <li><a href="tags.php">Tags</a></li>
                         <li><a href="wc.php">Weekly Challenges</a></li>
                         <!--li><a href="contact.php">Profile</a></li-->
-                        <li><a href="new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Ask Question</span></a></li>
+
+
+                        <!--                         <li><a href="new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Ask Question</span></a></li>
+   -->
+                        <li><a href="new-post.php"><button class="btn btn-primary text-white">
+                              <span class="icon-plus mr-3"></span>Ask Question
+                            </button></a></li>
+
+
+                        <li>
+                          <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                              <!--span class="bg-primary text-white py-3 px-4 rounded"-->
+                              <i class="fas fa-user"></i>
+                              <!--/span-->
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="logout.php">Logout</a></li>
+                            </ul>
+                          </div>
+                          <!--a href="logout.php">
+                            <span class="bg-primary text-white py-3 px-4 rounded">
+                              <i class="fas fa-user"></i>Logout
+                            </span>
+                          </a-->
+                        </li>
                       </ul>
                     </div>
                   </nav>
@@ -115,7 +140,25 @@
                           <li><a href="tags.php">Tags</a></li>
                           <li><a href="wc.php">Weekly Challenges</a></li>
                           <!--li><a href="contact.php">Profile</a></li-->
-                          <li><a href="login.php"><span class="bg-primary text-white py-3 px-4 rounded"><i class="fas fa-user"></i>Login</span></a></li>
+                          <li>
+
+                            <div class="dropdown">
+                              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                <!--span class="bg-primary text-white py-3 px-4 rounded"-->
+                                <i class="fas fa-user"></i>
+                                <!--/span-->
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="login.php">Login</a></li>
+                                <li><a href="signup.php">Register</a></li>
+                              </ul>
+                            </div>
+
+
+
+
+
+                          </li>
                         </ul>
                       </div>
                     </nav>
