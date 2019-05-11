@@ -164,12 +164,11 @@ $(document).ready(function () {
         url: "apis/api-show-all-questions.php",
         dataType: "JSON"
     }).always(function (jData) {
-        console.log("jData ", jData);
-        //${jData[i]['sneaker_id']}
+
         $.each(jData, function (i, item) {
-            console.log(jData[i], 'hej')
+         
             $('.questions-wrap').append(`
-                <a href="question-single.php?id=${jData[i]['id']}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
+                <a href="single-question.php?id=${jData[i]['id']}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
                     <div class="company-logo blank-logo text-center text-md-left pl-3">
                         <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
                     </div>
