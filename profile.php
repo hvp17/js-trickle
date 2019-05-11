@@ -210,8 +210,8 @@ require_once "components/top.php";
             <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
             <h6 class="mt-2">Upload a different photo</h6>
             <label class="custom-file">
-                <input type="file" id="file" class="custom-file-input">
-                <span class="btn btn-outline-primary custom-file-control ">Choose file</span>
+                <input type="file" id="userImg" class="custom-file-input">
+                <span class="btn btn-outline-primary custom-file-control " id="btnEditImg">Choose file</span>
             </label>
         </div>
     </div>
