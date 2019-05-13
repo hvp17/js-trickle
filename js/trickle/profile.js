@@ -25,7 +25,6 @@ $(document).ready(function () {
         url: "apis/api-show-user-image.php",
         dataType: "JSON"
     }).always(function (jData) {
-        console.log("jData ", jData);
         $.each(jData, function (i, item) {
             $("img#imgUser").attr('src', 'images/users/' + escapeHtml(jData[i]['img']));
 
@@ -99,11 +98,10 @@ $(document).ready(function () {
     }).always(function (jData) {
         console.log("jData ", jData);
         $.each(jData, function (i, item) {
+            console.log(jData)
             $('#user-details-container').append(`
-            <h6>Username</h6>
             <p class="pUsername">${escapeHtml(jData[i]['username'])}</p>
-            <h6>Level</h6>
-            <p>${escapeHtml(jData[i]['level'])}</p> `)
+             `)
 
             $('.used-tags-container').append(`
             <h6>Recent badges</h6>
@@ -112,7 +110,7 @@ $(document).ready(function () {
             $('.question-container tbody').append(`
             <tr>
             <td>
-                <span class="float-right font-weight-bold">${escapeHtml(jData[i]['date'])}</span> ${escapeHtml(jData[i]['title'])}
+                <span class="float-right font-weight-bold">${escapeHtml(jData[i]['question_date'])}</span> ${escapeHtml(jData[i]['questions_title'])}
             </td>
             </tr>`)
 

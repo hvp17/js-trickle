@@ -7,13 +7,21 @@ require_once __DIR__ . '/../db.php';
 **********************/
  try {
 
-    $sQuery = $db->prepare("SELECT DISTINCT users.id AS user_id, users.username,users.image_fk,users.email,users.password,
-    questions.id AS question_id,questions.user_fk, questions.title, questions.level_fk, questions.description, questions.date,
-    levels.id AS level_id, levels.name AS level
+    $sQuery = $db->prepare("SELECT
+    users.id as user_id,
+    users.username,
+    users.email,
+    GROUP_CONCAT(distinct questions.id) as questions_id,
+    GROUP_CONCAT(distinct questions.title) as questions_title,
+    GROUP_CONCAT(distinct questions.date) AS question_date
+
+
+
     FROM questions
-    JOIN users ON users.id = questions.user_fk
-    JOIN levels ON levels.id = questions.level_fk
-    WHERE users.id = :iUserId");
+
+    INNER JOIN users ON users.id = questions.user_fk
+    INNER JOIN questions_tags ON questions.id = questions_tags.questions_fk
+    where users.id = :iUserId");
     $sQuery->bindValue(':iUserId', $_SESSION['jUser']['id']);
     $sQuery->execute();
     $aUser = $sQuery->fetchAll();
