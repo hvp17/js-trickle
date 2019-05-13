@@ -1496,3 +1496,32 @@ p.description {
 .tags .close:hover::after {
   color: red;
 }
+
+/**************************************
+::SEARCH BAR
+**************************************/
+@media (min-width: 576px) {
+  #searchbar-wrapper {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/**************************************
+::DROPDOWN MENU
+**************************************/
+.container {
+  margin-right: 0;
+}
+
+ul.site-nav-wrap>li:last-child {
+  width: 80%;
+  left: 1.3em;
+}
+
+ul.dropdown-menu li {
+  text-align: right;
+  margin-right: 1em;
+}

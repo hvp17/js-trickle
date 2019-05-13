@@ -135,7 +135,7 @@ $(document).ready(function () {
 
         <div class="d-block flex-column">
           <div class="mr-3"><i class="fas fa-user"></i> ${escapeHtml(jData[i]['username'])}</div>
-          <div><i class="fas fa-calendar-day"></i> ${escapeHtml(jData[i]['date'])}</div>
+          <div><i class="fas fa-calendar-alt"></i> ${escapeHtml(jData[i]['date'])}</div>
           <div class="mr-3"><i class="fas fa-asterisk"></i> ${escapeHtml(jData[i]['levels_name'])}</div>
 
         </div>
