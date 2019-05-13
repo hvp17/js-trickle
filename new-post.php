@@ -77,23 +77,24 @@ require_once "components/top.php";
           <div class="row form-group">
             <div class="col-md-12">
 
-              <h3>Question level</h3>
+              <h3>User level</h3>
 
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
-              <label for="option-question-level-1">
-                <input type="radio" id="option-question-level-1" class="question-level" name="txtLevel" value="1" required> Beginner
+              <label for="option-user-level-1">
+                <input type="radio" id="option-user-level-1" class="user-level" name="txtLevel" value="1" required> Beginner
               </label>
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
-              <label for="option-question-level-2">
-                <input type="radio" id="option-question-level-2" class="question-level" name="txtLevel" value="2" required> Intermediate
+              <label for="option-user-level-2">
+                <input type="radio" id="option-user-level-2" class="user-level" name="txtLevel" value="2" required> Intermediate
               </label>
             </div>
 
             <div class="col-md-12 mb-3 mb-md-0">
-              <label for="option-question-level-3">
-                <input type="radio" id="option-question-level-3" class="question-level" name="txtLevel" value="3" required> Expert
+              <label for="option-user-level-3">
+                <input type="radio" id="option-user-level-3" class="user-level" name="txtLevel" value="3" required> Expert
+                </label>
             </div>
 
           </div>
@@ -107,17 +108,7 @@ require_once "components/top.php";
               <h3>Tags</h3>
             </div>
             <div class="col-md-12 mb-3 mb-md-0 tags-container">
-              <span class="tags-wrapper" id="tagsArray">
-                <!--                 <span class="tags">Javascript<span class="close"></span></span>
- --> </span>
-              <!--               <input type="text" id="txtTags" name="txtTags" class="form-control add-tags" placeholder="e.g.(Javascript JQuery Angular)">
- -->
-              <select id="txtTags" name="txtTags[]">
-                <option class="add-tags" value="1">Javascript</option>
-                <option class="add-tags" value="2">JQuery</option>
-                <option class="add-tags" value="3">Angular</option>
-                <option class="add-tags" value="4">Ajax</option>
-              </select>
+              <div class="tags-wrapper" id="tagsArray"></div>
             </div>
           </div>
               <div id="txtTags" name="txtTags">
