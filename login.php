@@ -21,18 +21,18 @@ require_once __DIR__ . '/class/token.php';
 
       <div class="col-md-12 col-lg-8 mb-5 mx-auto">
 
-            <form action="#" class="p-5 bg-white" id="frmLogin">
-              <div class="row form-group mb-5">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="email">Email</label>
-                  <input type="text" id="txtEmail" name="txtEmail" class="form-control" value="e@e.com">
-                </div>
-              </div>
-              <div class="row form-group mb-5">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="password">Password</label>
-                  <input type="password" id="txtPassword" name="txtPassword" class="form-control" value="123456">
-                  <input type="hidden" name="token" value="<?= Token::generate() ?>">
+        <form action="#" class="p-5 bg-white" id="frmLogin">
+          <div class="row form-group mb-5">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="font-weight-bold" for="email">Email</label>
+              <input type="text" id="txtEmail" name="txtEmail" class="form-control" value="eeee@eeee.com">
+            </div>
+          </div>
+          <div class="row form-group mb-5">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="font-weight-bold" for="password">Password</label>
+              <input type="password" id="txtPassword" name="txtPassword" class="form-control" value="123456">
+              <input type="hidden" name="token" value="<?= Token::generate() ?>">
 
             </div>
           </div>
