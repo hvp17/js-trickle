@@ -92,9 +92,8 @@ require_once "components/top.php";
             </div>
 
             <div class="col-md-12 mb-3 mb-md-0">
-              <label for="option-user-level-3">
-                <input type="radio" id="option-user-level-3" class="user-level" name="txtLevel" value="3" required> Expert
-                </label>
+              <label for="option-question-level-3">
+                <input type="radio" id="option-question-level-3" class="question-level" name="txtLevel" value="3" required> Expert
             </div>
 
           </div>
