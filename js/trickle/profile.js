@@ -38,10 +38,10 @@ $(document).ready(function () {
 ***************************/
 $('#file').change(function () {
     var file = $('.fileToUpdate')[0].files[0];
-    console.log("file ", file);
+    // console.log("file ", file);
     var fd = new FormData();
     fd.append('file', file);
-    console.log("fd ", fd);
+    // console.log("fd ", fd);
 
     $.ajax({
         url: "apis/api-edit-user-image.php",
@@ -51,7 +51,7 @@ $('#file').change(function () {
         processData: false,
         dataType: "JSON"
     }).always(function (jData) {
-        console.log(jData)
+        // console.log(jData)
     })
 
 })
@@ -63,10 +63,10 @@ $('#file').change(function () {
 **********************/
 
 function readURL(input) {
-    console.log(input);
+    // console.log(input);
     if (input.files && input.files[0]) {
         var sIdImageToModify = $(input).parent().parent().find('#imgUser')
-        console.log(" $(this) ", sIdImageToModify);
+        // console.log(" $(this) ", sIdImageToModify);
 
         var reader = new FileReader();
         reader.onload = function (e) {
@@ -96,35 +96,39 @@ $(document).ready(function () {
         url: "apis/api-show-user-profile.php",
         dataType: "JSON"
     }).always(function (jData) {
-        console.log("jData ", jData);
-        $.each(jData, function (i, item) {
-            console.log(jData)
-            $('#user-details-container').append(`
-            <p class="pUsername">${escapeHtml(jData[i]['username'])}</p>
+        
+        $('#user-details-container').append(`
+            <p class="pUsername">${escapeHtml(jData[0]['username'])}</p>
              `)
+        
+         
+            var dates = jData[0]['question_date'].split(',')
+            var titles = jData[0]['questions_title'].split(',')
+            var qIds = jData[0]['questions_id'].split(',')
+            console.log(jData[0])
+            $.each(dates, function (i, item) {
 
-            $('.used-tags-container').append(`
-            <h6>Recent badges</h6>
-            <a href="jData[i]['tag_id']" class="badge badge-dark badge-pill"> jData[i]['tag_name']</a>
-            `)
-            $('.question-container tbody').append(`
+                $('.question-container tbody').append(`
             <tr>
             <td>
-                <span class="float-right font-weight-bold">${escapeHtml(jData[i]['question_date'])}</span> ${escapeHtml(jData[i]['questions_title'])}
+                <span class="float-right font-weight-bold" id="${escapeHtml(qIds[i])}">${escapeHtml(dates[i])}</span> ${escapeHtml(titles[i])}
             </td>
             </tr>`)
+            })
+            
+            
 
             $('#frmEdit').append(`
             <div class="form-group row">
             <label class="col-lg-3 col-form-label form-control-label">Username</label>
             <div class="col-lg-9">
-                <input class="form-control" type="text" name="txtUsername" value="${escapeHtml(jData[i]['username'])}">
+                <input class="form-control" type="text" name="txtUsername" value="${escapeHtml(jData[0]['username'])}">
             </div>
         </div>
         <div class="form-group row">
             <label class="col-lg-3 col-form-label form-control-label">Email</label>
             <div class="col-lg-9">
-                <input class="form-control txtEmail" type="email" name="txtEmail" value="${escapeHtml(jData[i]['email'])}">
+                <input class="form-control txtEmail" type="email" name="txtEmail" value="${escapeHtml(jData[0]['email'])}">
             </div>
         </div>
         <div class="form-group row">
@@ -148,7 +152,7 @@ $(document).ready(function () {
         </div>
 
             `)
-        })
+        
 
     })
 
