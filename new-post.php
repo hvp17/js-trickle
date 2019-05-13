@@ -7,7 +7,7 @@ if (!$_SESSION['jUser']) {
   exit;
 } else {
   //AUTOMATIC LOGOUT AFTER 15 MINUTES
-  if ((time() - $_SESSION['last_login_timestamp']) > 900) //900 = 15*60
+  if ((time() - $_SESSION['last_login_timestamp']) > 90000) //900 = 15*60
   {
     header('Location: logout.php');
     exit;
@@ -120,6 +120,8 @@ require_once "components/top.php";
               </select>
             </div>
           </div>
+              <div id="txtTags" name="txtTags">
+              </div>
 
           <!-----------------------------
       ::QUESTION DESCRIPTION::
@@ -127,7 +129,7 @@ require_once "components/top.php";
 
           <div class="row form-group">
             <div class="col-md-12">
-              <h3>Description</h3>
+              <h3>Question</h3>
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
               <textarea id="txtDescription" name="txtDescription" class="form-control" cols="30" rows="5" required></textarea>
@@ -136,7 +138,7 @@ require_once "components/top.php";
 
           <div class="row form-group">
             <div class="col-md-12">
-              <input type="submit" id="btnQuestion" value="Post a Question" class="btn btn-primary  py-2 px-5">
+              <button type="button" id="btnQuestion" class="btn btn-primary  py-2 px-5">Submit Question</button>
             </div>
           </div>
 
