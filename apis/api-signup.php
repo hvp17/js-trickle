@@ -1,5 +1,18 @@
 <?php
-
+/* if( empty($_POST['txtName']) ||
+empty($_POST['txtLastName']) ||
+empty($_POST['txtEmail']) ||
+empty($_POST['txtPassword']) ||
+empty($_POST['txtConfirmPassword']) ||
+!(strlen($_POST['txtName']) >= 2 && strlen($_POST['txtName']) <= 20) ||
+!(strlen($_POST['txtLastName']) >= 2 && strlen($_POST['txtLastName']) <= 20) ||
+!filter_var($_POST['txtEmail'], FILTER_VALIDATE_EMAIL) ||
+!(strlen($_POST['txtPassword']) >= 6 && strlen($_POST['txtPassword']) <= 20) ||
+!($_POST['txtPassword'] == $_POST['txtConfirmPassword'])
+){
+echo '{"status":0, "message":"******************"}';
+exit;
+} */
 if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
   $secret = '6LdDM6IUAAAAAM8VwxrJzjBh6R-GiMB9lcOWGoNE';
   $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);

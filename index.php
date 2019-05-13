@@ -13,8 +13,8 @@ require_once "components/top.php";
           <div class="row mb-3">
             <div class="col-md-9">
               <div class="row">
-                <div class="col-xs-12 col-sm-6 col-lg-12">
-                  <input type="text" class="mr-3 form-control border-0 px-4" placeholder="job title, keywords or company name ">
+                <div class="col-xs-12 col-sm-6 col-lg-12" id="searchbar-wrapper">
+                  <input type="text" class="mr-3 form-control border-0 px-4" placeholder="Search... ">
                 </div>
                 <!--div class="col-md-6 mb-3 mb-md-0">
                       <div class="input-wrap">
