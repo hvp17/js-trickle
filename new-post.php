@@ -77,17 +77,17 @@ require_once "components/top.php";
           <div class="row form-group">
             <div class="col-md-12">
 
-              <h3>User level</h3>
+              <h3>Question level</h3>
 
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
-              <label for="option-user-level-1">
-                <input type="radio" id="option-user-level-1" class="user-level" name="txtLevel" value="1" required> Beginner
+              <label for="option-question-level-1">
+                <input type="radio" id="option-question-level-1" class="question-level" name="txtLevel" value="1" required> Beginner
               </label>
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
-              <label for="option-user-level-2">
-                <input type="radio" id="option-user-level-2" class="user-level" name="txtLevel" value="2" required> Intermediate
+              <label for="option-question-level-2">
+                <input type="radio" id="option-question-level-2" class="question-level" name="txtLevel" value="2" required> Intermediate
               </label>
             </div>
 

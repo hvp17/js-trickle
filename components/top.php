@@ -97,7 +97,9 @@
                               <!--/span-->
                             </button>
                             <ul class="dropdown-menu">
+                            <li><a href="profile.php">Profile</a></li>
                               <li><a href="logout.php">Logout</a></li>
+
                             </ul>
                           </div>
                           <!--a href="logout.php">
