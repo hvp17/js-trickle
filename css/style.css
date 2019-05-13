@@ -1471,7 +1471,7 @@ p.description {
 
 }
 
-.tags {
+.tag {
   background-color: cornflowerblue;
   color: #fff;
   margin: 5px -3px 5px 5px;
@@ -1481,18 +1481,19 @@ p.description {
   cursor: pointer;
 }
 
-.tags:hover {
+.tag:hover {
   background-color: #3af;
 }
 
-.tags .close::after {
+.tag .close::after {
   content: 'x';
   font-weight: bold;
   display: inline-block;
   transform: scale(0.7);
   margin-left: 0.75em;
+  z-index: 1000;
 }
 
-.tags .close:hover::after {
+.tag .close:hover::after {
   color: red;
 }

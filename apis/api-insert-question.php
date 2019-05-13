@@ -12,9 +12,11 @@ if (
 }
 
 
+
 session_start();
 require_once __DIR__ . '/../db.php';
-// $db->beginTransaction();
+
+$db->beginTransaction();
 try {
   $sQuery = $db->prepare('INSERT INTO questions
                             VALUES (null, :iUserFK, :sTitle, :iLevelFK, :sDescription, null)');
@@ -24,45 +26,56 @@ try {
   $sQuery->bindValue(':iLevelFK', $_POST['txtLevel']);
   $sQuery->bindValue(':sDescription', $_POST['txtDescription']);
   $sQuery->execute();
-  //$iQuestion = $db->lastInsertId();
-  if ($sQuery->rowCount()) {
-    echo '{"status":1, "message":"success form 1"}';
-    //$db->rollBack();
-    //exit;
+
+  if( $sQuery->rowCount() ){
+    $iPostId = $db->lastInsertId();
+    echo '{"status":1, "message":"Indlæg blev tilføjet"}';
+
   }
 } catch (PDOException $e) {
-  echo '{"status":0, "message":"error", "code":"001", "line":' . __LINE__ . '}';
-  //$db->rollBack();
+  echo '{"status":0, "message":"error", "code":"001", "error":'.$exception.'}';
+  $db->rollBack();
+  exit;
 }
 
-/**************************************************************************************
- *::TEST MUST BE DELETED
- */
 
 
+//******************************* SELECT TAG ID BASED ON TAG NAME AND LOOP THE LAST 2 STATEMENTS*/
 
-//$tags = implode(', ', $_POST['#tagsArray']);
-/* $tags =  $_POST['array'];
-foreach ($tags as $tag) {
-  echo '{"tag":"' . $tag . '"}';
-} */
-/*
-require_once __DIR__ . '/../db.php';
-try {
+$aTags = explode (",", $_POST['txtTags']);
+foreach( $aTags as $aTag ){
 
-  $sQuery = $db->prepare('INSERT INTO questions_tags
-  VALUES (null, :iQuestionFK, :sTagsFK)');
-
-  $sQuery->bindValue(':iQuestionFK', 3); //$iQuestion);
-  $sQuery->bindValue(':sTagsFK', $tags);
+try{
+  $sQuery = $db->prepare(' SELECT id FROM tags where name=:sTag ');
+  $sQuery->bindValue(':sTag', $aTag);
   $sQuery->execute();
-  if ($sQuery->rowCount()) {
-    echo '"status":21, "message":"success"}';
-    //$db->commit();
-    exit;
-  }
-} catch (PDOException $e) {
-  echo '{"status":0, "message":"error", "code":"001", "line":' . __LINE__ . '}';
-  // $db->rollBack();
+  $aTagId = $sQuery->fetchAll();
+  $iTagId = $aTagId[0]["id"];
+
+}catch(PDOException $exception){
+  echo '{"status":0, "message":"Tag origin could not be queried"}';
 }
- */
+
+
+try{
+  $sQuery = $db->prepare('INSERT INTO questions_tags VALUES(null, :iPostId, :iTagId)');
+  $sQuery->bindValue( ':iPostId', $iPostId );
+  $sQuery->bindValue( ':iTagId', $iTagId );
+  $sQuery->execute();
+  if( !$sQuery->rowCount() ){
+    $db->rollBack();
+    exit;
+  }    
+  
+}catch(PDOException $ex){
+  echo $ex;
+  $db->rollBack();
+  exit;
+}
+
+
+
+}
+// LOOP ENDED
+
+$db->commit();
