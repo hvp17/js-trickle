@@ -14,7 +14,7 @@ function _e($string)
 try {
   $sQuery = $db->prepare("SELECT * FROM answers WHERE question_fk = :iId");
 
-  $sQuery->bindValue(':iId', htmlspecialchars($_GET['id']));
+  $sQuery->bindValue(':iId', _e($_GET['id']));
   $sQuery->execute();
   $aQuestions = $sQuery->fetchAll();
 

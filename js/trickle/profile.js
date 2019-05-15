@@ -191,3 +191,26 @@ $(document).on('click', '.btnEdit', function () {
     })
 
 })
+
+/***************************************
+::SHOW ANSWERS
+***************************************/
+
+$(document).ready(function () {
+    $.ajax({
+        url: "apis/api-show-user-answers.php",
+        dataType: "JSON"
+    }).always(function (jData) {
+        //console.log("jDataPROFILE-ANSWERS ", jData);
+        $.each(jData, function (i, item) {
+            $('#answer-container tbody').append(`
+               <tr>
+               <td>
+                   <span class="float-right font-weight-bold" id="${escapeHtml(jData[i]['id'])}">${escapeHtml(jData[i]['date'])}</span> ${escapeHtml(jData[i]['answer'])}
+               </td>
+               </tr>`)
+        })
+
+
+    })
+})

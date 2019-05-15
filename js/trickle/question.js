@@ -230,27 +230,3 @@ $(document).ready(function () {
     });
   });
 });
-
-
-
-
-
-
-
-
-
-
-/**************************************************************************
-:: SHOW QUESTIONS
-/**************************************************************************/
-
-$(document).ready(function () {
-  $.ajax({
-    url: "apis/api-show-answers-for-question.php?id=",
-    method: 'GET',
-    dataType: "JSON"
-  }).always(function (jData) {
-    console.log("jData ", jData);
-
-  })
-})
