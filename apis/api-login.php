@@ -138,17 +138,6 @@ LIMIT 1'
         var_dump($exception);
       }
 
-
-
-
-
-
-
-
-
-
-
-
       exit;
     }
   }

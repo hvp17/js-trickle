@@ -1,18 +1,17 @@
 <?php
-/* if( empty($_POST['txtName']) ||
-empty($_POST['txtLastName']) ||
-empty($_POST['txtEmail']) ||
-empty($_POST['txtPassword']) ||
-empty($_POST['txtConfirmPassword']) ||
-!(strlen($_POST['txtName']) >= 2 && strlen($_POST['txtName']) <= 20) ||
-!(strlen($_POST['txtLastName']) >= 2 && strlen($_POST['txtLastName']) <= 20) ||
-!filter_var($_POST['txtEmail'], FILTER_VALIDATE_EMAIL) ||
-!(strlen($_POST['txtPassword']) >= 6 && strlen($_POST['txtPassword']) <= 20) ||
-!($_POST['txtPassword'] == $_POST['txtConfirmPassword'])
-){
-echo '{"status":0, "message":"******************"}';
-exit;
-} */
+if (
+  empty($_POST['txtUsername']) ||
+  empty($_POST['txtEmail']) ||
+  empty($_POST['txtPassword']) ||
+  empty($_POST['txtConfirmPassword']) ||
+  !(strlen($_POST['txtUsername']) >= 2 && strlen($_POST['txtUsername']) <= 20) ||
+  !filter_var($_POST['txtEmail'], FILTER_VALIDATE_EMAIL) ||
+  !(strlen($_POST['txtPassword']) >= 6 && strlen($_POST['txtPassword']) <= 20) ||
+  !($_POST['txtPassword'] == $_POST['txtConfirmPassword'])
+) {
+  echo '{"status":0, "message":"******************"}';
+  exit;
+}
 if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
   $secret = '6LdDM6IUAAAAAM8VwxrJzjBh6R-GiMB9lcOWGoNE';
   $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
@@ -30,21 +29,22 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
 ini_set('display_errors', 1);
 ///////    END SYNTAX ERROR CHECK    ////////////
 
-
 //HASHING
 $password = $_POST['txtPassword'];
 $options = [
   'cost' => 5,
 ];
 $hashed_password =  password_hash($password, PASSWORD_DEFAULT, $options);
+
 require_once __DIR__ . '/../db.php';
 try {
   $iBlockedDate = time();
   $sQuery = $db->prepare('INSERT INTO users
-                            VALUES (null, :sImg,:sUsername, :sEmail, :sPassword, :bBlocked, :iBlockedDate)');
+                            VALUES (null, :sUsername, :iImgFK, :sEmail, :sPassword, :bBlocked, :iBlockedDate)');
 
-  $sQuery->bindValue(':sImg', 'avatar.jpg');
+
   $sQuery->bindValue(':sUsername', $_POST['txtUsername']);
+  $sQuery->bindValue(':iImgFK', 1);
   $sQuery->bindValue(':sEmail', $_POST['txtEmail']);
   $sQuery->bindValue(':sPassword', $hashed_password);
   $sQuery->bindValue(':bBlocked', 0);

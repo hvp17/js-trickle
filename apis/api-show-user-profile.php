@@ -22,11 +22,11 @@ require_once __DIR__ . '/../db.php';
     INNER JOIN users ON users.id = questions.user_fk
     INNER JOIN questions_tags ON questions.id = questions_tags.questions_fk
     where users.id = :iUserId");
-    $sQuery->bindValue(':iUserId', 1);
+    $sQuery->bindValue(':iUserId', $_SESSION['jUser']['id']);
     $sQuery->execute();
     $aQS = $sQuery->fetchAll();
     echo json_encode($aQS);
-   
+
 
 
 } catch (PDOException $e) {
