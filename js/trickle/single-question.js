@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var questionId = $('.content').attr('id')
-    console.log(questionId)
+    
     $.ajax({
         url: "apis/api-single-question.php",
         data: {questionId:questionId},
@@ -71,4 +71,25 @@ $(document).ready(function () {
     </div>
         `)
     })
+
+
+    $.ajax({
+      url: "apis/api-show-answers-for-question.php",
+      data: {questionId:questionId},
+      dataType: "JSON"
+  }).always(function (jData){
+    console.log(jData,'jData')
+    for (var i in jData) {
+    $('#answers').prepend(`
+    <div class="col-md-8">
+        <h4 id="${jData[i].id}">User ${jData[i].username}</h4>
+        <p>${jData[i].date}</p>
+                <div class="body-text">
+            <p>${jData[i].answer}</p>                
+            </div>
+
+          </div>
+    `)
+    }
+  })
 })
