@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!$_SESSION['jUser']) {
-  header('Location: login.php');
-  exit;
+    header('Location: login.php');
+    exit;
 }
 require_once "components/top.php";
 ?>
@@ -14,8 +14,12 @@ require_once "components/top.php";
                     <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
+                    <a href="" data-target="#questions" data-toggle="tab" class="nav-link">Questions</a>
                 </li>
+                <li class="nav-item">
+                    <a href="" data-target="#answers" data-toggle="tab" class="nav-link">Answers</a>
+                </li>
+
                 <li class="nav-item">
                     <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
                 </li>
@@ -29,8 +33,8 @@ require_once "components/top.php";
                             <div id="user-details-container"></div>
                         </div>
                         <div class="col-md-6">
-                        <!-- PROFILE TAB 'used tags' -->
-                        <div class="used-tags-container"></div>
+                            <!-- PROFILE TAB 'used tags' -->
+                            <div class="used-tags-container"></div>
                             <hr>
                             <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
                             <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
@@ -71,16 +75,38 @@ require_once "components/top.php";
                     </div>
                     <!--/row-->
                 </div>
-                <div class="tab-pane" id="messages">
+
+                <!--Your Questions-->
+                <div class="tab-pane" id="questions">
                     <div class="alert alert-info alert-dismissable">
                         <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
                     </div>
-                    <table class="table table-hover table-striped question-container">
+                    <table class="table table-hover table-striped question-container" id="question-container">
                         <tbody>
-                         <!-- MESSAGE TAB 'questions container' -->
+                            <!-- QUESTION TAB 'questions container' -->
                         </tbody>
                     </table>
                 </div>
+
+
+
+
+                <!--Your Answers-->
+                <div class="tab-pane" id="answers">
+                    <div class="alert alert-info alert-dismissable">
+                        <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                    </div>
+                    <table class="table table-hover table-striped answer-container" id="answer-container">
+                        <tbody>
+                            <!-- ANSWERS TAB 'questions container' -->
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
                 <div class="tab-pane" id="edit">
                     <form role="form" class="profile-form-container" id="frmEdit">
                     </form>

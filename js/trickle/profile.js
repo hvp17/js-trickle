@@ -88,7 +88,7 @@ function readURL(input) {
 
 
 /**************************************************************************
-:: SHOW USER IMAGE
+:: SHOW USER
 /**************************************************************************/
 
 $(document).ready(function () {
@@ -96,29 +96,29 @@ $(document).ready(function () {
         url: "apis/api-show-user-profile.php",
         dataType: "JSON"
     }).always(function (jData) {
-        
+
         $('#user-details-container').append(`
             <p class="pUsername">${escapeHtml(jData[0]['username'])}</p>
              `)
-        
-         
-            var dates = jData[0]['question_date'].split(',')
-            var titles = jData[0]['questions_title'].split(',')
-            var qIds = jData[0]['questions_id'].split(',')
-            console.log(jData[0])
-            $.each(dates, function (i, item) {
 
-                $('.question-container tbody').append(`
+
+        var dates = jData[0]['question_date'].split(',')
+        var titles = jData[0]['questions_title'].split(',')
+        var qIds = jData[0]['questions_id'].split(',')
+        console.log(jData[0])
+        $.each(dates, function (i, item) {
+
+            $('#question-container tbody').append(`
             <tr>
             <td>
                 <span class="float-right font-weight-bold" id="${escapeHtml(qIds[i])}">${escapeHtml(dates[i])}</span> ${escapeHtml(titles[i])}
             </td>
             </tr>`)
-            })
-            
-            
+        })
 
-            $('#frmEdit').append(`
+
+
+        $('#frmEdit').append(`
             <div class="form-group row">
             <label class="col-lg-3 col-form-label form-control-label">Username</label>
             <div class="col-lg-9">
@@ -152,7 +152,7 @@ $(document).ready(function () {
         </div>
 
             `)
-        
+
 
     })
 

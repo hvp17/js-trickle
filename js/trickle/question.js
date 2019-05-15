@@ -191,7 +191,7 @@ $(document).ready(function () {
     //${jData[i]['sneaker_id']}
     $.each(jData, function (i, item) {
       $(".questions-wrap").append(`
-                <a href="question-single.php?id=${
+                <a href="single-question.php?id=${
                   jData[i]["id"]
                 }" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
                     <div class="company-logo blank-logo text-center text-md-left pl-3">
@@ -204,7 +204,7 @@ $(document).ready(function () {
                                 ${escapeHtml(jData[i]["question"])}
                             </p>
 
-                            <div class="d-block d-lg-flex">
+                            <div class="d-block d-lg-flex flex-column">
                             <div class="mr-3"><i class="fas fa-asterisk"></i> ${escapeHtml(
                               jData[i]["level"]
                             )}</div>
@@ -230,3 +230,27 @@ $(document).ready(function () {
     });
   });
 });
+
+
+
+
+
+
+
+
+
+
+/**************************************************************************
+:: SHOW QUESTIONS
+/**************************************************************************/
+
+$(document).ready(function () {
+  $.ajax({
+    url: "apis/api-show-answers-for-question.php?id=",
+    method: 'GET',
+    dataType: "JSON"
+  }).always(function (jData) {
+    console.log("jData ", jData);
+
+  })
+})
