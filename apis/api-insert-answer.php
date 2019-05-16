@@ -14,7 +14,7 @@ function _e($string)
  *************************************/
 
 if (
-    empty($_POST['txtAnswer'])
+    empty($_POST['answer'])
 ) {
     echo '{"status":5, "message":"empty field ***CANNOT INSERT***"}';
     exit;
@@ -28,11 +28,11 @@ require_once __DIR__ . '/../db.php';
 
 try {
     $sQuery = $db->prepare('INSERT INTO answers
-                            VALUES (null, :iQuestionFK, :iUserFK, :sAnswer)');
+                            VALUES (null, :iQuestionFK, :iUserFK, :sAnswer, null)');
 
-    $sQuery->bindValue(':iQuestionFK', $_GET['id']);
+    $sQuery->bindValue(':iQuestionFK', $_POST['questionId']);
     $sQuery->bindValue(':iUserFK', $_SESSION['jUser']['id']);
-    $sQuery->bindValue(':sAnswer', $_POST['txtAnswer']);
+    $sQuery->bindValue(':sAnswer', $_POST['answer']);
     $sQuery->execute();
 
     if ($sQuery->rowCount()) {
