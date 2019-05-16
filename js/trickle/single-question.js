@@ -102,18 +102,18 @@ $(document).ready(function () {
     dataType: "JSON"
   }).always(function (jData) {
     console.log(jData, 'jData')
-    for (var i in jData) {
-      $('#answers').prepend(`
-    <div class="col-md-8">
-        <h4 id="${escapeHtml(jData[i].id)}">User ${escapeHtml(jData[i].username)}</h4>
-        <p>${escapeHtml(jData[i].date)}</p>
-                <div class="body-text">
-            <p>${escapeHtml(jData[i].answer)}</p>
-            </div>
+    // for (var i in jData) {
+    //   $('#answers').prepend(`
+    // <div class="col-md-8">
+    //     <h4 id="${escapeHtml(jData[i].id)}">User ${escapeHtml(jData[i].username)}</h4>
+    //     <p>${escapeHtml(jData[i].date)}</p>
+    //             <div class="body-text">
+    //         <p>${escapeHtml(jData[i].answer)}</p>
+    //         </div>
 
-          </div>
-    `)
-    }
+    //       </div>
+    // `)
+    // }
   })
 })
 
@@ -133,6 +133,6 @@ $(document).on('click', '#btnAnswer', function () {
     dataType: "JSON",
     method: "POST"
   }).always(function (jData) {
-    console.log('jData ANSW', jData)
+    console.log('jData', jData)
   })
 })
