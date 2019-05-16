@@ -62,7 +62,7 @@ $(document).ready(function () {
             <form>
             <h3>Your answer</h3>
             <textarea placeholder="Answer"></textarea>
-            <button type="button" class="btn btn-primary  py-2 px-4">Submit answer</button>
+            <button id="btnSubmitAnswer" type="button" class="btn btn-primary  py-2 px-4">Submit answer</button>
             </form>
             </div>
           </div>

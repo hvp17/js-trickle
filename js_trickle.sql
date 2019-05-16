@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 10, 2019 at 01:44 PM
+-- Generation Time: May 16, 2019 at 05:30 PM
 -- Server version: 5.7.23
 -- PHP Version: 5.6.37
 
@@ -42,8 +42,38 @@ CREATE TABLE `answers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `question_fk` bigint(20) UNSIGNED NOT NULL,
   `user_fk` bigint(20) UNSIGNED NOT NULL,
-  `answer` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL
+  `answer` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `answers`
+--
+
+INSERT INTO `answers` (`id`, `question_fk`, `user_fk`, `answer`, `date`) VALUES
+(1, 33, 5, 'blablabla', '2019-05-15 16:32:30'),
+(2, 33, 4, 'avenpvnpaevne', '2019-05-15 16:32:30'),
+(3, 33, 4, 'number 3', '2019-05-15 16:32:30'),
+(4, 34, 1, 'aepogaegnea', '2019-05-15 16:32:30'),
+(5, 34, 4, 'gkaevpae', '2019-05-15 16:32:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `img` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `img`) VALUES
+(1, 'avatar.jpg');
 
 -- --------------------------------------------------------
 
@@ -61,9 +91,9 @@ CREATE TABLE `levels` (
 --
 
 INSERT INTO `levels` (`id`, `name`) VALUES
-(1, 'Beginner'),
+(1, 'Easy'),
 (2, 'Intermediate'),
-(3, 'Expert');
+(3, 'Advanced');
 
 -- --------------------------------------------------------
 
@@ -436,135 +466,148 @@ INSERT INTO `login_attempts` (`id`, `time`, `status`, `email`) VALUES
 (296, 1554926165, 0, 'q@A.com'),
 (297, 1554926203, 0, 'q@A.com'),
 (298, 1554926205, 0, 'q@A.com'),
-(299, 1556016798, 0, 'a@a.com'),
-(300, 1556016965, 0, 'e@e.com'),
-(301, 1556017059, 0, 'e@e.com'),
-(302, 1557216466, 0, 'e@e.com'),
-(303, 1557216524, 0, 'e@e.com'),
-(304, 1557216589, 0, 'e@e.com'),
-(305, 1557219049, 0, 'e@e.com'),
-(306, 1557219060, 0, 'e@e.com'),
-(307, 1557219147, 0, 'a@a.com'),
-(308, 1557219156, 0, 'a@a.com'),
-(309, 1557219399, 0, 'e@e.com'),
-(310, 1557219404, 0, 'e@e.com'),
-(311, 1557219515, 0, 'e@e.com'),
-(312, 1557219523, 0, 'e@e.com'),
-(313, 1557219535, 0, 'e@e.com'),
-(314, 1557219548, 0, 'e@e.com'),
-(315, 1557219619, 0, 'a@a.com'),
-(316, 1557219624, 0, 'a@a.com'),
-(317, 1557219661, 0, 'a@a.com'),
-(318, 1557220134, 0, 'q@A.com'),
-(319, 1557220142, 0, 'q@A.com'),
-(320, 1557220148, 0, 'q@A.com'),
-(321, 1557220152, 0, 'q@A.com'),
-(322, 1557221994, 0, 'C@A.com'),
-(323, 1557222011, 0, 'C@A.com'),
-(324, 1557222081, 0, 'C@A.com'),
-(325, 1557222101, 0, 'C@A.com'),
-(326, 1557222176, 0, 'C@A.com'),
-(327, 1557222197, 0, 'C@A.com'),
-(328, 1557222206, 0, 'C@A.com'),
-(329, 1557222339, 0, 'C@A.com'),
-(330, 1557222455, 0, 'C@A.com'),
-(331, 1557222470, 0, 'C@A.com'),
-(332, 1557222472, 0, 'C@A.com'),
-(333, 1557222473, 0, 'C@A.com'),
-(334, 1557222478, 0, 'C@A.com'),
-(335, 1557222591, 0, 'C@A.com'),
-(336, 1557222715, 0, 'CC@A.com'),
-(337, 1557222747, 0, 'CC@A.com'),
-(338, 1557222884, 0, 'CC@A.com'),
-(339, 1557222888, 0, 'CC@A.com'),
-(340, 1557222895, 0, 'CC@A.com'),
-(341, 1557222902, 0, 'CC@A.com'),
-(342, 1557222908, 0, 'CC@A.com'),
-(343, 1557222917, 0, 'CC@A.com'),
-(344, 1557222978, 0, 'CC@A.com'),
-(345, 1557223040, 0, 'CC@A.com'),
-(346, 1557223045, 0, 'CC@A.com'),
-(347, 1557223074, 0, 'CC@A.com'),
-(348, 1557223091, 0, 'CC@A.com'),
-(349, 1557223124, 0, 'CC@A.com'),
-(350, 1557223300, 0, 'CC@A.com'),
-(351, 1557223314, 0, 'CC@A.com'),
-(352, 1557223317, 0, 'CC@A.com'),
-(353, 1557223320, 0, 'CC@A.com'),
-(354, 1557223330, 0, 'CC@A.com'),
-(355, 1557223354, 0, 'CC@A.com'),
-(356, 1557223466, 0, 'CC@A.com'),
-(357, 1557223518, 0, 'CC@A.com'),
-(358, 1557223525, 0, 'CC@A.com'),
-(359, 1557223565, 0, 'CC@A.com'),
-(360, 1557223615, 0, 'CC@A.com'),
-(361, 1557223985, 0, 'CC@A.com'),
-(362, 1557224010, 0, 'CC@A.com'),
-(363, 1557224027, 0, 'CC@A.com'),
-(364, 1557224050, 0, 'CC@A.com'),
-(365, 1557224115, 0, 'CC@A.com'),
-(366, 1557224161, 0, 'CC@A.com'),
-(367, 1557224218, 0, 'CC@A.com'),
-(368, 1557224259, 0, 'CC@A.com'),
-(369, 1557310096, 0, 'e@e.com'),
-(370, 1557310348, 0, 'e@e.com'),
-(371, 1557310462, 0, 'e@e.com'),
-(372, 1557310582, 0, 'Af@Af.com'),
-(373, 1557310629, 0, 'Af@Af.com'),
-(374, 1557310667, 0, 'Af@Af.com'),
-(375, 1557310695, 0, 'Af@Af.com'),
-(376, 1557310760, 0, 'Af@Af.com'),
-(377, 1557310766, 0, 'Af@Af.com'),
-(378, 1557310816, 0, 'Arg@Arg.com'),
-(379, 1557310921, 0, 'Arg@Arg.com'),
-(380, 1557310935, 0, 'Arg@Arg.com'),
-(381, 1557310996, 0, 'Arg@Arg.com'),
-(382, 1557311008, 0, 'Arg@Arg.com'),
-(383, 1557311024, 0, 'Arg@Arg.com'),
-(384, 1557311116, 0, 'Arg@Arg.com'),
-(385, 1557311184, 0, 'Arg@Arg.com'),
-(386, 1557311194, 0, 'Arg@Arg.com'),
-(387, 1557311216, 0, 'Arg@Arg.com'),
-(388, 1557311278, 0, 'Arg@Arg.com'),
-(389, 1557311348, 0, 'Arg@Arg.com'),
-(390, 1557311361, 0, 'Arg@Arg.com'),
-(391, 1557311411, 0, 'Arg@Arg.com'),
-(392, 1557311626, 0, 'Arg@Arg.com'),
-(393, 1557311637, 0, 'Arg@Arg.com'),
-(394, 1557311649, 0, 'Arg@Arg.com'),
-(395, 1557311702, 0, 'Ab@A.com'),
-(396, 1557311738, 0, 'Ab@A.com'),
-(397, 1557311752, 0, 'Ab@A.com'),
-(398, 1557311782, 0, 'Ab@A.com'),
-(399, 1557311797, 0, 'Ab@A.com'),
-(400, 1557311859, 0, 'q@q.com'),
-(401, 1557311966, 0, 'r@r.com'),
-(402, 1557311981, 0, 'r@r.com'),
-(403, 1557312239, 0, 'r@r.com'),
-(490, 1557393316, 1, 'ww@ww.com'),
-(491, 1557393353, 1, 'ww@ww.com'),
-(492, 1557393423, 1, 'ww@ww.com'),
-(493, 1557393436, 1, 'ww@ww.com'),
-(494, 1557393464, 1, 'ww@ww.com'),
-(495, 1557393621, 1, 'ww@ww.com'),
-(496, 1557393730, 1, 'ww@ww.com'),
-(497, 1557393776, 1, 'ww@ww.com'),
-(498, 1557393857, 1, 'ww@ww.com'),
-(499, 1557393889, 1, 'ww@ww.com'),
-(500, 1557393932, 1, 'ww@ww.com'),
-(501, 1557394192, 0, 'ww@ww.com'),
-(502, 1557394367, 1, 'ww@ww.com'),
-(503, 1557399263, 1, 'ww@ww.com'),
-(504, 1557400483, 1, 'ww@ww.com'),
-(505, 1557405320, 1, 'ww@ww.com'),
-(506, 1557413634, 1, 'ww@ww.com'),
-(507, 1557417246, 1, 'ww@ww.com'),
-(508, 1557475299, 1, 'ww@ww.com'),
-(509, 1557475928, 1, 'ww@ww.com'),
-(510, 1557475944, 0, 'wrrrr@ww.com'),
-(511, 1557476003, 0, 'wwrrrrrrrrr@ww.com'),
-(512, 1557477215, 1, 'Arg@Arg.com'),
-(513, 1557481707, 1, 'Arg@Arg.com');
+(299, 1557216308, 0, 'e@e.come'),
+(300, 1557216365, 0, 'e@e.comd'),
+(301, 1557219604, 0, 'e@e.coms'),
+(302, 1557219699, 0, 'e@e.coms'),
+(303, 1557219719, 0, 'e@e.coms'),
+(304, 1557219743, 0, 'e@e.com'),
+(305, 1557219745, 0, 'e@e.com'),
+(306, 1557219748, 0, 'e@e.com'),
+(307, 1557219832, 0, 'e@e.coms'),
+(308, 1557219908, 0, 'e@e.coms'),
+(309, 1557220430, 0, 'e@e.com'),
+(310, 1557220544, 0, 'e@e.com'),
+(311, 1557220544, 0, 'e@e.com'),
+(312, 1557220545, 0, 'e@e.com'),
+(313, 1557221428, 0, 'e@e.com'),
+(314, 1557221466, 0, 'e@e.com'),
+(315, 1557221517, 0, 'e@e.com'),
+(316, 1557221565, 0, 'e@e.com'),
+(317, 1557221609, 0, 'e@e.com'),
+(318, 1557221632, 0, 'e@e.com'),
+(319, 1557221662, 0, 'e@e.com'),
+(320, 1557221695, 0, 'e@e.com'),
+(321, 1557221708, 0, 'e@e.com'),
+(322, 1557221716, 0, 'e@e.com'),
+(323, 1557221719, 0, 'e@e.com'),
+(324, 1557221722, 0, 'e@e.com'),
+(325, 1557221813, 0, 'e@e.com'),
+(326, 1557221827, 0, 'e@e.com'),
+(327, 1557221854, 0, 'e@e.com'),
+(328, 1557221874, 0, 'e@e.com'),
+(329, 1557221883, 0, 'e@e.com'),
+(330, 1557221885, 0, 'e@e.com'),
+(331, 1557221887, 0, 'e@e.com'),
+(332, 1557221899, 0, 'e@e.com'),
+(333, 1557221910, 0, 'e@e.com'),
+(334, 1557221912, 0, 'e@e.com'),
+(335, 1557221913, 0, 'e@e.com'),
+(336, 1557221980, 0, 'e@e.com'),
+(337, 1557222009, 0, 'e@e.com'),
+(338, 1557222044, 0, 'e@e.com'),
+(339, 1557222056, 0, 'e@e.com'),
+(340, 1557222061, 0, 'e@e.com'),
+(341, 1557222108, 0, 'e@e.com'),
+(342, 1557222164, 0, 'e@e.com'),
+(343, 1557222189, 0, 'e@e.com'),
+(344, 1557222267, 0, 'e@e.com'),
+(345, 1557222312, 0, 'e@e.com'),
+(346, 1557222320, 0, 'a@e.com'),
+(347, 1557222368, 0, 'e@e.com'),
+(348, 1557222375, 0, 'e@e.com'),
+(349, 1557222411, 0, 'e@e.com'),
+(350, 1557222419, 0, 'e@e.com'),
+(351, 1557222484, 0, 'abab@e.com'),
+(352, 1557222517, 0, 'e@e.com'),
+(353, 1557222591, 0, 'efaw@e.com'),
+(354, 1557222594, 0, 'efaw@e.com'),
+(355, 1557222597, 0, 'efaw@e.com'),
+(356, 1557222599, 0, 'efaw@e.com'),
+(357, 1557222599, 0, 'efaw@e.com'),
+(358, 1557222600, 0, 'efaw@e.com'),
+(359, 1557222620, 0, 'e@e.com'),
+(360, 1557222622, 0, 'e@e.com'),
+(361, 1557222649, 0, 'eefa@e.com'),
+(362, 1557222651, 0, 'eefa@e.com'),
+(363, 1557222654, 0, 'eefa@e.com'),
+(364, 1557222666, 0, 'esd@e.com'),
+(365, 1557222713, 0, 'e@edssd.com'),
+(366, 1557222756, 0, 'dase@e.com'),
+(367, 1557222794, 0, 'e@easd.com'),
+(368, 1557222825, 0, 'e@e.com'),
+(369, 1557222853, 0, 'e@e.com'),
+(370, 1557222899, 0, 'e@e.com'),
+(371, 1557222913, 0, 'e@e.com'),
+(372, 1557223056, 0, 'emmaam@e.com'),
+(373, 1557223060, 0, 'emmaam@e.com'),
+(374, 1557223066, 0, 'emmaam@e.com'),
+(375, 1557223069, 0, 'emmaam@e.com'),
+(376, 1557223071, 0, 'emmaam@e.com'),
+(377, 1557223141, 0, 'emmaam@e.com'),
+(378, 1557223153, 0, 'emmaam@e.com'),
+(379, 1557223175, 0, 'emmaam@e.com'),
+(380, 1557223687, 0, 'emmaam@e.com'),
+(381, 1557223692, 0, 'emmaam@e.com'),
+(382, 1557223726, 0, 'emmaam@e.com'),
+(383, 1557223740, 0, 'emmaam@e.com'),
+(384, 1557223756, 0, 'emmaam@e.com'),
+(385, 1557223759, 0, 'emmaam@e.com'),
+(386, 1557223762, 0, 'emmaam@e.com'),
+(387, 1557223871, 0, 'emmaam@e.com'),
+(388, 1557223970, 0, 'emmaam@e.com'),
+(389, 1557223975, 0, 'emmaamsd@e.com'),
+(390, 1557224077, 0, 'emmaamfs@e.com'),
+(391, 1557224106, 0, 'sdsdemmaam@e.com'),
+(392, 1557224160, 0, 'emmaam@eaeffe.com'),
+(393, 1557224215, 0, 'emmaaaefm@e.com'),
+(394, 1557224218, 0, 'emmaaaefm@e.com'),
+(395, 1557224224, 0, 'emmaaaefm@e.com'),
+(396, 1557224269, 0, 'emmaageagem@e.com'),
+(397, 1557224273, 0, 'emmaageagem@e.com'),
+(398, 1557224355, 0, 'emmapaoegnam@e.com'),
+(399, 1557224360, 0, 'emmapaoegnam@e.com'),
+(400, 1557224363, 0, 'emmapaoegnam@e.com'),
+(401, 1557224916, 0, 'eeee@eeee.com'),
+(402, 1557224918, 0, 'eeee@eeee.com'),
+(403, 1557224920, 0, 'eeee@eeee.com'),
+(404, 1557224928, 0, 'eeee@eeee.com'),
+(405, 1557225095, 0, 'e@e.com'),
+(406, 1557225097, 0, 'e@e.com'),
+(407, 1557225103, 0, 'e@e.com'),
+(408, 1557225145, 0, 'e@e.com'),
+(409, 1557225153, 0, 'e@e.com'),
+(410, 1557225157, 0, 'e@e.com'),
+(411, 1557225159, 0, 'e@e.com'),
+(412, 1557225161, 0, 'e@e.com'),
+(413, 1557225180, 0, 'e@e.com'),
+(414, 1557225185, 0, 'e@e.com'),
+(415, 1557225270, 0, 'mo@mo.com'),
+(416, 1557225481, 0, 'mo@mo.com'),
+(417, 1557225589, 0, 'mo@mo.com'),
+(418, 1557225610, 0, 'mo@mo.com'),
+(419, 1557225657, 0, 'mom@mom.com'),
+(420, 1557225708, 0, 'mom@mom.com'),
+(421, 1557225731, 0, 'mom@mom.com'),
+(422, 1557225783, 0, 'eon@e.com'),
+(423, 1557225804, 0, 'eon@e.com'),
+(424, 1557225805, 0, 'eon@e.com'),
+(425, 1557225862, 0, 'eeg@e.com'),
+(426, 1557426400, 0, 'ww@ww.com'),
+(427, 1557426477, 1, 'e@e.com'),
+(428, 1557426686, 0, 'ww@ww.com'),
+(429, 1557426701, 0, 'ww@ww.com'),
+(430, 1557426704, 0, 'ww@ww.com'),
+(431, 1557476079, 0, 'eon@e.com'),
+(514, 1557569040, 0, 'ww@ww.com'),
+(515, 1557569135, 0, 'ee@ee.com'),
+(516, 1557569187, 1, 'e@e.com'),
+(517, 1557570584, 1, 'e@e.com'),
+(518, 1557571396, 1, 'e@e.com'),
+(519, 1557573684, 1, 'e@e.com'),
+(520, 1557592165, 1, 'e@e.com'),
+(521, 1557735811, 1, 'eon@e.com'),
+(522, 1558020583, 1, 'eon@e.com');
 
 -- --------------------------------------------------------
 
@@ -586,14 +629,11 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `user_fk`, `title`, `level_fk`, `description`, `date`) VALUES
-(2, 42, 'Ajax::problem', 1, 'My problem is that every time I bla bla bla', '2019-05-09 14:39:57'),
-(3, 42, 'JQuery::problem', 2, 'in this field i write a description of my problem', '2019-05-10 09:07:04'),
-(11, 42, 'Javascript::ISSUE', 2, 'I must tell you that in this field i\'m wondering to write a short description of my problem.', '2019-05-10 09:07:01'),
-(13, 42, 'Angular::NOT CLEAR', 3, 'I Have this huge problem where... I must tell you that in this field i\'m wondering to write a short description of my problem.', '2019-05-10 09:06:36'),
-(14, 42, 'tit', 2, 'dfgadgdgfadfaadf', '2019-05-09 14:40:37'),
-(15, 42, '<script>alert(\'under attack\')</script>', 2, 'under attack!', '2019-05-09 14:40:39'),
-(16, 42, '<script>alert(\'under attack\')</script>', 3, '<script>alert(\'under attack\')</script>', '2019-05-10 09:06:32'),
-(28, 42, 'dshdsjhsdhj', 3, 'hsdjhdsjhdsfjh', '2019-05-10 09:06:57');
+(33, 2, 'new test', 1, 'aeffea', '2019-05-11 16:29:52'),
+(34, 2, 'aegeg', 3, 'argrgarag', '2019-05-11 16:30:05'),
+(35, 1, 'test1', 1, 'okokok', '2019-05-13 08:17:21'),
+(36, 1, 'test2', 2, 'okokokok', '2019-05-13 08:17:21'),
+(37, 1, 'test3', 3, 'okokokokokok', '2019-05-13 08:17:37');
 
 -- --------------------------------------------------------
 
@@ -612,8 +652,12 @@ CREATE TABLE `questions_tags` (
 --
 
 INSERT INTO `questions_tags` (`id`, `questions_fk`, `tags_fk`) VALUES
-(1, 2, 4),
-(2, 2, 2);
+(8, 33, 4),
+(9, 33, 2),
+(10, 34, 1),
+(11, 35, 4),
+(12, 36, 1),
+(13, 37, 2);
 
 -- --------------------------------------------------------
 
@@ -661,6 +705,7 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `username` varchar(25) NOT NULL,
+  `image_fk` bigint(20) UNSIGNED NOT NULL,
   `email` varchar(20) NOT NULL,
   `password` varbinary(64) NOT NULL,
   `blocked` tinyint(1) NOT NULL,
@@ -671,31 +716,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `blocked`, `blocked_date`) VALUES
-(1, '', 'a@a.com', 0x313233343536, 1, 0),
-(2, '', 'B@B.com', 0x313233343536, 1, 0),
-(3, '', 'c@c.com', 0x313233343536, 0, 1550837892),
-(4, '', 'G@G.com', 0x313233343536, 0, 1553256641),
-(22, '', 'h@h.com', 0x313233343536, 0, 1553256858),
-(23, '', 'f@f.com', 0x313233343536, 0, 1553256902),
-(24, '', 'y@y.com', 0x313233343536, 0, 1553256951),
-(25, '', 't@A.com', 0x435a3063555042564875383d, 0, 1553257015),
-(26, '', 'u@u.com', 0x595157432f78395053476f3d, 0, 1553257326),
-(27, '', 'p@p.com', 0x54304b5145307363306c493d, 0, 1553258063),
-(28, '', 'AA@A.com', 0x243279243035247a74574e465042457a59536645556a5775486d38654f786d666c5159304735626b4c555347494476486d7a625975684c696e656b53, 0, 1553865036),
-(30, '', 'Af@Af.com', 0x243279243035242f4c38577434562f4843453841506e6c75665555714f304777747157507743796759414c764b6b5a4d6e68334136594b554e4f3957, 0, 1554911858),
-(31, '', 'Arg@Arg.com', 0x243279243035246c313354704b306b5479762f364a76634c4955534e4f796e51446149576963513673795838664e63446c4e445450756d587849442e, 0, 1554913800),
-(32, '', 'Ab@A.com', 0x243279243130243441664f4c33317539577744634a736158616d57314f79355a6d456143632e5852797a626449694271535663696c7743436844594f, 0, 1554916012),
-(33, '', 'B@A.com', 0x243279243035244a7769394b343949704c713949722e523667734667754e366f51473462644a58306a454c4a65695278714b58386a616b3237444869, 0, 1554919099),
-(34, '', 'C@A.com', 0x24327924303524442e364f453159704275415a6c4d7843796178503665727663726746724e764e7346315453394e4c7a6c584e4334664c4b51785269, 0, 1554919126),
-(35, '', 'CC@A.com', 0x24327924303524544363696b787a726c6a4b72425a337635776f72677571543838466f686f765a59703554754832754f61615337554f4e572e64344b, 0, 1554919156),
-(36, '', 'Az@A.com', 0x243279243035245a6248586f6e5636562f384d51377950476d506d394f35577078535a326357685061786e4f7957696b6a66344c324b524e33336f4f, 0, 1554919420),
-(37, '', 'q@A.com', 0x243279243035244f37436d49397a6d69776e396c4f4a6949456a70376572634e6563744b466353556f7a6b6d542f695a313337454556745364523253, 0, 1554923764),
-(38, '', '', 0x24327924303524424271494e4a6a7a43677543454c375461514b66524f754e394d66466c3152704476342e4854764c2e77444d684b4b455a79304265, 0, 1556016951),
-(39, '', 'e@e.com', 0x243279243035247249595251494a4f6e6b43705162362e766877654e7579622f6662586c486d5949793754347535314771587737477947583835772e, 0, 1556017191),
-(40, 'eee', 'q@q.com', 0x2432792430352451324a4c44744278306d516e567a78314b74735a572e7634734479355047737946504c615379486336472f61674a5339336d315743, 0, 1557311828),
-(41, 'eee', 'r@r.com', 0x243279243035243656484379584b4c7846545a39376655335739384c655977374c6b6762486a7849736e4256753344594b6e4c464f776c5831354375, 0, 1557311963),
-(42, 'c4m1', 'ww@ww.com', 0x2432792430352436774e6831703259436d75375271584e496a762e672e584171315158362e63394f645063557a646f2f724d75676d3333666264556d, 0, 1557312372);
+INSERT INTO `users` (`id`, `username`, `image_fk`, `email`, `password`, `blocked`, `blocked_date`) VALUES
+(1, 'eeeeee', 1, 'eeee@eeee.com', 0x243279243035243755512e4f37764268367a565a55575839544c5053756568546169413632364d6c774348594350774a7564784275474c6e57565943, 0, 1556015833),
+(2, 'eee', 1, 'e@e.com', 0x24327924303524766e68795a484b574d7045433874385a2e376748732e554c7175624c534a63586b726865383539486a4d73614448336f55462f5953, 0, 1556016150),
+(3, 'momo', 1, 'mo@mo.com', 0x243279243035243232694a6576654a4c35435373794a63305454763575386e4c326773336938383775375a484e704b6d33746f4d795a2f776c61472e, 0, 1557225261),
+(4, 'momommoom', 1, 'mom@mom.com', 0x24327924303524313142726d5936796f375a4c4c4c65362e74412f6c6549476b776572365956386270576d6550563651516e78696e2f2f6f4c744a71, 0, 1557225646),
+(5, 'eon', 1, 'eon@e.com', 0x243279243035246a435977584270493755572e33303378592f5247392e73574a46655539672e5655496273527974484c394a33645155653647477579, 0, 1557225766),
+(6, 'eeege', 1, 'eeg@e.com', 0x24327924303524467961414c78574844657863455a6b7a452f526c364f4b6d3852417441616759496e52674f5479516e2e30315932716952626a6e2e, 0, 1557225857);
 
 -- --------------------------------------------------------
 
@@ -714,6 +741,14 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- Indexes for table `answers`
 --
 ALTER TABLE `answers`
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `question_fk` (`question_fk`),
+  ADD KEY `user_fk` (`user_fk`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
   ADD UNIQUE KEY `id` (`id`);
 
 --
@@ -772,7 +807,8 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD KEY `password` (`password`);
+  ADD KEY `password` (`password`),
+  ADD KEY `users_ibfk_1` (`image_fk`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -782,7 +818,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `levels`
@@ -806,19 +848,19 @@ ALTER TABLE `likes_questions`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=514;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=523;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `questions_tags`
 --
 ALTER TABLE `questions_tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tags`
@@ -830,11 +872,18 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `answers`
+--
+ALTER TABLE `answers`
+  ADD CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`question_fk`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `answers_ibfk_2` FOREIGN KEY (`user_fk`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `questions`
@@ -842,6 +891,19 @@ ALTER TABLE `users`
 ALTER TABLE `questions`
   ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`user_fk`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `questions_ibfk_3` FOREIGN KEY (`level_fk`) REFERENCES `levels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `questions_tags`
+--
+ALTER TABLE `questions_tags`
+  ADD CONSTRAINT `questions_tags_ibfk_1` FOREIGN KEY (`questions_fk`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `questions_tags_ibfk_2` FOREIGN KEY (`tags_fk`) REFERENCES `tags` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`image_fk`) REFERENCES `images` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
