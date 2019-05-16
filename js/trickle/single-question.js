@@ -79,9 +79,11 @@ $(document).ready(function () {
 
             <div class="p-4 mb-3 bg-white">
             <h3>Your answer</h3>
+
             <form>
             <textarea placeholder="Answer" id="txtAnswer"></textarea>
             <button type="button" class="btn btn-primary  py-2 px-4" id="btnAnswer">Submit answer</button>
+
             </form>
             </div>
           </div>
