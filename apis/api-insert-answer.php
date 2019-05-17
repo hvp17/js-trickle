@@ -34,7 +34,30 @@ try{
     $sQuery->execute();
     $aAnswerFromUser = $sQuery->fetchAll();
     $answerCountFromUser = $aAnswerFromUser[0]['answer_count'];
-   
+    $userTime = 0;
+
+
+
+    if($answerCountFromUser==0){
+
+        try{
+
+            $sQuery = $db->prepare("SELECT questions.user_fk AS question_user_id FROM questions WHERE questions.id =:iQuestionId");
+        
+            $sQuery->bindValue(':iQuestionId', $_POST['questionId']);
+            $sQuery->execute();
+            $aAnswers = $sQuery->fetchAll();
+            $questionUserId = $aAnswers[0]['question_user_id'];
+            // echo 'ok nested 1';
+        }catch (PDOException $e) {
+            $db->rollBack();
+            echo '{"status":0, "message":"error", "code":"001", "error":' . $e . '}';
+            exit;
+        }
+        
+  
+    }
+
     if($answerCountFromUser>0){
 
         try{
@@ -47,6 +70,7 @@ try{
             $aAnswers = $sQuery->fetchAll();
             $questionUserId = $aAnswers[0]['question_user_id'];
             $answerDateFromUser = $aAnswers[0]['answer_date'];
+            $userTime = strtotime($answerDateFromUser);
             // echo 'ok nested 1';
         }catch (PDOException $e) {
             $db->rollBack();
@@ -73,6 +97,8 @@ try{
     $sQuery->execute();
     $aAnswerFromAuthor = $sQuery->fetchAll();
     $answerCountFromAuthor = $aAnswerFromAuthor[0]['answer_count'];
+    $authorTime = 1;
+   
     if($answerCountFromAuthor>0){
 
         try{
@@ -84,6 +110,7 @@ try{
             $sQuery->execute();
             $aAnswer = $sQuery->fetchAll();
             $answerDateFromAuthor = $aAnswer[0]['answer_date'];
+            $authorTime = strtotime($answerDateFromAuthor);
             // echo json_encode($responseAnswerDate);
             // echo 'ok nested 2';
             
@@ -106,10 +133,9 @@ try{
     exit;
 }
 
-$userTime = strtotime($answerDateFromUser);
-$authorTime = strtotime($answerDateFromAuthor);
 
 try{
+
 if($userTime>$authorTime){
     echo '{"status":0, "message":"error", "code":106}';
     $db->rollBack();
@@ -119,7 +145,7 @@ if($userTime>$authorTime){
 }catch (PDOException $exception) {
     $db->rollBack();
 
-    echo '{"status":0, "message":"error", "code":"001", "error":' . $exception . '}';
+    echo '{"status":0, "message":"error", "code":"0011", "error":' . $exception . '}';
 
     exit;
 }
