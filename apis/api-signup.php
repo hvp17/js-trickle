@@ -26,7 +26,7 @@ if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)
 }
 
 if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
-  $secret = '6LdFIqQUAAAAABOib0x4hGs6nVBiD-HR-i8zqV42';
+  $secret = '6LdDM6IUAAAAAM8VwxrJzjBh6R-GiMB9lcOWGoNE';
   $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
   $responseData = json_decode($verifyResponse);
   if ($responseData->success) {
@@ -39,7 +39,7 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
 
 
 ///////    SYNTAX ERROR CHECK    ////////////
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 ///////    END SYNTAX ERROR CHECK    ////////////
 
 //HASHING

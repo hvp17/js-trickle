@@ -7,11 +7,6 @@ $("#frmSignup").submit(function(e) {
     data: $("#frmSignup").serialize(),
     dataType: "JSON"
   }).always(function(jData) {
-    if (jData.error) {
-      console.log("???");
-      $(".passError").text(jData.error);
-    }
-
     console.log(jData);
     if (jData.status === 1) {
       location.href = "login.php";
