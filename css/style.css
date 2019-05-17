@@ -1530,3 +1530,11 @@ ul.dropdown-menu li {
 .question-section {
   padding-top: 7em;
 }
+
+#response {
+  color: red;
+}
+
+.valid-response{
+  color: green !important;
+}

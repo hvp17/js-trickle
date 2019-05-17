@@ -16,7 +16,7 @@ function _e($string)
 if (
     empty($_POST['answer'])
 ) {
-    echo '{"status":5, "message":"empty field ***CANNOT INSERT***"}';
+    echo '{"status":5, "message":"empty field ***CANNOT INSERT***", "code":212}';
     exit;
 }
 
@@ -111,7 +111,7 @@ $authorTime = strtotime($answerDateFromAuthor);
 
 try{
 if($userTime>$authorTime){
-    echo '{"status":0, "message":"error", "code":"006"}';
+    echo '{"status":0, "message":"error", "code":106}';
     $db->rollBack();
     exit;
 
@@ -137,7 +137,7 @@ try {
 
     if ($sQuery->rowCount()) {
         $iPostId = $db->lastInsertId();
-        echo '{"status":1, "message":"Answer inserted"}';
+        echo '{"status":1, "message":"Answer inserted", "code":111}';
         $db->commit();
     }
 } catch (PDOException $e) {
