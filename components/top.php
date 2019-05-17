@@ -1,7 +1,3 @@
-<?php
-  session_start();
-  if ($_SESSION['jUser']) {
-    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +45,10 @@
 </head>
 
 <body>
-  
+  <?php
+  session_start();
+  if ($_SESSION['jUser']) {
+    ?>
 
     <div class="site-wrap">
 
