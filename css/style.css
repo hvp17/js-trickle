@@ -367,6 +367,7 @@ a:hover {
   width: 100%;
   border-bottom: none;
   background: #fff !important;
+  padding-left: 2em;
 }
 
 .site-navbar .site-logo {
@@ -1513,8 +1514,9 @@ p.description {
 /**************************************
 ::DROPDOWN MENU
 **************************************/
-.container {
-  margin-right: 0;
+.container-menu {
+  width: 93%;
+  margin: 0 auto;
 }
 
 ul.site-nav-wrap>li:last-child {
@@ -1529,4 +1531,12 @@ ul.dropdown-menu li {
 
 .question-section {
   padding-top: 7em;
+}
+
+#response {
+  color: red;
+}
+
+.valid-response{
+  color: green !important;
 }

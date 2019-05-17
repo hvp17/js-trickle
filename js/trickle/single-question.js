@@ -85,6 +85,8 @@ $(document).ready(function () {
             <button type="button" class="btn btn-primary  py-2 px-4" id="btnAnswer">Submit answer</button>
 
             </form>
+            <br>
+            <p id="response"></p>
             </div>
           </div>
         </div>
@@ -133,6 +135,18 @@ $(document).on('click', '#btnAnswer', function () {
     dataType: "JSON",
     method: "POST"
   }).always(function (jData) {
-    console.log('jData', jData)
+    console.log(jData)
+    if(jData.code==212){
+      $('p#response').removeClass('valid-response')
+      $('p#response').text('You can not submit a blank answer.')
+    }
+    if(jData.code==106){
+      $('p#response').removeClass('valid-response')
+      $('p#response').text('You can not submit more than 1 answer to a question. Please wait for the user who posted the question to respond. You are welcome to edit your existing answer.')
+    }
+    if(jData.code==111){
+      $('p#response').addClass('valid-response')
+      $('p#response').text('Your answer was succesfully posted.')
+    }
   })
 })
