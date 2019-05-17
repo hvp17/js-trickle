@@ -39,7 +39,7 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
 
 
 ///////    SYNTAX ERROR CHECK    ////////////
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 ///////    END SYNTAX ERROR CHECK    ////////////
 
 //HASHING

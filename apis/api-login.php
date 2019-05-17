@@ -110,7 +110,7 @@ LIMIT 1'
     $pass = $aUsers[0]['password'];
     //if input passw = db hashed password
     if (password_verify($password, $pass)) {
-      $_SESSION['jUser'] = $aUsers[0];
+      $_SESSION['jUser'] = $aUsers[0]['id'];
       //CHECK TIME OF LOGIN FOR AUTOMATIC LOGOUT AFTER
       //15 MINUTES IF NOT INTERACTING WITH WEBSITE:
       //THE CHECK HAPPEN IN "new-post.php"
