@@ -43,7 +43,7 @@ require_once "components/top.php";
               <input type="password" id="confirm-password" name="txtConfirmPassword" class="form-control" value="123456">
             </div>
           </div>
-          <div class="g-recaptcha" data-sitekey="6LdDM6IUAAAAAD18nn5YfuEFt2nHUyFEbWLP5Xt-"></div>
+          <div class="g-recaptcha" data-sitekey="6LdFIqQUAAAAAJqiKxZVlb_OU65fR-oNg_IPkABk"></div>
 
           <div class="row form-group">
             <div class="col-md-12">
