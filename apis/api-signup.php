@@ -12,6 +12,19 @@ if (
   echo '{"status":0, "message":"******************"}';
   exit;
 }
+
+$password = $_POST['txtPassword'];
+
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+$number    = preg_match('@[0-9]@', $password);
+$specialChars = preg_match('@[^\w]@', $password);
+
+if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+    echo '{"error":  "Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character"}';
+    exit;
+}
+
 if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
   $secret = '6LdDM6IUAAAAAM8VwxrJzjBh6R-GiMB9lcOWGoNE';
   $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);

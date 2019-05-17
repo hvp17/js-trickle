@@ -47,6 +47,8 @@ require_once "components/top.php";
 
           <div class="row form-group">
             <div class="col-md-12">
+            <span style="color:red;" class="passError"></span>
+            <br/>
               <input type="submit" value="Sign up" class="btn btn-primary  py-2 px-5">
             </div>
           </div>
