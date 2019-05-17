@@ -7,23 +7,21 @@
       <div class="col-md-4">
         <h3 class="footer-heading mb-4 text-white">About</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem ullam, placeat amet.</p>
-        <p><a href="#" class="btn btn-primary pill text-white px-4">Read More</a></p>
       </div>
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-6">
             <h3 class="footer-heading mb-4 text-white">Quick Menu</h3>
             <ul class="list-unstyled">
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Approach</a></li>
-              <li><a href="#">Sustainability</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Careers</a></li>
+              <li><a href="profile.php">Profile</a></li>
+              <li><a href="tags.php">Browse Tags</a></li>
+              <li><a href="wc.php">See Weekly Challenges</a></li>
+              <li><a href="new-post.php">Post a Question</a></li>
+
             </ul>
           </div>
           <div class="col-md-6">
-            <h3 class="footer-heading mb-4 text-white">Categories</h3>
+            <h3 class="footer-heading mb-4 text-white">Tags</h3>
             <ul class="list-unstyled">
               <li><a href="#">Angular</a></li>
               <li><a href="#">JQuery</a></li>
