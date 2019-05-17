@@ -2,28 +2,6 @@
 $(document).on('click', '#btnLogin', function (e) {
   e.preventDefault();
 
-  var sEmail = $("#txtEmail").val();
-  console.log("sEmail ", sEmail);
-  var sPassword = $("#txtPassword").val();
-
-  $("#invalidEmail", "#invalidPassword").hide();
-
-  var bErrorsFound = false;
-  // validate Email
-  if (!fnIsEmailValid(sEmail)) {
-    $("#invalidEmail").show();
-    bErrorsFound = true;
-  }
-  // validate Password
-  if (sPassword.length < 6 || sPassword.length > 20) {
-    $("#invalidPassword").show();
-    bErrorsFound = true;
-  }
-  // validate boolian for password and email
-  if (bErrorsFound) {
-    return;
-  }
-
   $.ajax({
     url: "apis/api-login.php",
     method: "POST",
@@ -55,6 +33,27 @@ $(document).on('click', '#btnLogin', function (e) {
       //document.location.href = "home.php"
       return;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   });
 });
 
