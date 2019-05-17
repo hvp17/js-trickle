@@ -22,11 +22,6 @@ require_once "components/top.php";
               <input type="submit" class="btn btn-search btn-primary btn-block" value="Search">
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <p class="small">or browse by category: <a href="#" class="category">Category #1</a> <a href="#" class="category">Category #2</a></p>
-            </div>
-          </div>
 
         </form>
       </div>

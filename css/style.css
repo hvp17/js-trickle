@@ -367,6 +367,7 @@ a:hover {
   width: 100%;
   border-bottom: none;
   background: #fff !important;
+  padding-left: 2em;
 }
 
 .site-navbar .site-logo {
@@ -1513,8 +1514,9 @@ p.description {
 /**************************************
 ::DROPDOWN MENU
 **************************************/
-.container {
-  margin-right: 0;
+.container-menu {
+  width: 93%;
+  margin: 0 auto;
 }
 
 ul.site-nav-wrap>li:last-child {
