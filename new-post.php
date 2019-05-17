@@ -128,6 +128,8 @@ require_once "components/top.php";
           </div>
 
           <div class="row form-group">
+          <div class="g-recaptcha" data-sitekey="6LdDM6IUAAAAAD18nn5YfuEFt2nHUyFEbWLP5Xt-"></div>
+
             <div class="col-md-12">
               <button type="button" id="btnQuestion" class="btn btn-primary  py-2 px-5">Submit Question</button>
             </div>
