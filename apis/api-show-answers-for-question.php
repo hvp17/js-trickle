@@ -12,7 +12,7 @@ try {
   $aAnswers = $sQuery->fetchAll();
 
   $jAnswers = json_encode($aAnswers);
-  $jResponse = '{"answers": '.$jAnswers.', "user_id": '. $_SESSION['jUser']['id'].' }';
+  $jResponse = '{"answers": '.$jAnswers.', "user_id": '. $_SESSION['jUser'].' }';
   
 
   echo $jResponse;

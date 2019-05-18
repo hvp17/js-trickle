@@ -16,7 +16,7 @@ function _e($string)
 try {
     $sQuery = $db->prepare("SELECT * FROM answers WHERE user_fk = :iUserFK");
 
-    $sQuery->bindValue(':iUserFK', $_SESSION['jUser']['id']);
+    $sQuery->bindValue(':iUserFK', $_SESSION['jUser']);
     $sQuery->execute();
     $aAnswers = $sQuery->fetchAll();
 
