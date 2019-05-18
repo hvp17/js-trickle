@@ -76,7 +76,7 @@ try {
                                                           status = :iStatus AND
                                                           time > :iValidAttempts");
 
-    $sCheckLoginAttempts->bindValue(':sEmail', 'ww@ww.com'); //$_POST['txtEmail']);
+    $sCheckLoginAttempts->bindValue(':sEmail',$_POST['txtEmail']); 
     $sCheckLoginAttempts->bindValue(':iValidAttempts', $valid_attempts);
     $sCheckLoginAttempts->bindValue(':iStatus', 0);
     $sCheckLoginAttempts->execute();
