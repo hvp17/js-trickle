@@ -47,7 +47,9 @@ $password = $_POST['txtPassword'];
 $options = [
   'cost' => 10,
 ];
-$hashed_password =  password_hash($password, PASSWORD_DEFAULT, $options);
+
+$pepper = "secret";
+$hashed_password =  password_hash($password.$pepper, PASSWORD_DEFAULT, $options);
 
 require_once __DIR__ . '/../db.php';
 try {

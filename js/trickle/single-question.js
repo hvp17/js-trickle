@@ -26,7 +26,7 @@ $(document).ready(function() {
     dataType: "JSON"
   }).always(function(jData) {
     console.log(jData);
-    $(".content").append(`
+    $(".content").prepend(`
         <div class="unit-5 overlay" style="background-image: url('images/hero_2.jpg');">
       <div class="container text-center">
         <h2 id="${escapeHtml(
@@ -84,24 +84,7 @@ $(document).ready(function() {
               </div>
 
 
-          <div class="col-lg-4">
-
-
-            <div class="p-4 mb-3 bg-white">
-            <h3>Your answer</h3>
-
-            <form>
-            <textarea placeholder="Answer" id="txtAnswer"></textarea>
-            <button type="button" class="btn btn-primary  py-2 px-4" id="btnAnswer">Submit answer</button>
-
-            </form>
-            <br>
-            <p id="response"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          
         `);
   });
 

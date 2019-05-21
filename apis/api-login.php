@@ -29,7 +29,7 @@ if (
 require_once __DIR__ . '/../db.php';
 $password = $_POST['txtPassword'];
 
-
+$pepper = "secret";
 
 try {
 
@@ -109,7 +109,7 @@ LIMIT 1'
   if (count($aUsers)) {
     $pass = $aUsers[0]['password'];
     //if input passw = db hashed password
-    if (password_verify($password, $pass)) {
+    if (password_verify($password.$pepper, $pass)) {
       $_SESSION['jUser'] = $aUsers[0]['id'];
       //CHECK TIME OF LOGIN FOR AUTOMATIC LOGOUT AFTER
       //15 MINUTES IF NOT INTERACTING WITH WEBSITE:
