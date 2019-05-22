@@ -1,5 +1,5 @@
 /* trigger the click */
-$(document).on('click', '#btnLogin', function (e) {
+$(document).on("click", "#btnLogin", function(e) {
   e.preventDefault();
 
   $.ajax({
@@ -7,24 +7,23 @@ $(document).on('click', '#btnLogin', function (e) {
     method: "POST",
     data: $("#frmLogin").serialize(),
     dataType: "JSON"
-  }).always(function (jData) {
+  }).always(function(jData) {
     console.log(jData);
 
-    if (jData.status === 1 && jData.token === 'login_secure') {
-      document.location.href = "new-post.php"
+    if (jData.status === 1 && jData.token === "login_secure") {
+      document.location.href = "new-post.php";
       return;
     } else {
-      if (jData.token === 'login_NOT_secure') {
-        document.location.href = "login.php"
+      if (jData.token === "login_NOT_secure") {
+        document.location.href = "login.php";
         return;
       }
     }
 
     if (jData["loginLimit"] === "reached" && jData.status === 123) {
       $(".error").append(`Too many login ATTEMPTS...Please wait for 5 minutes`);
-
-      setTimeout(function () {
-        document.location.href = "apis/api-logout.php";
+      setTimeout(function() {
+        document.location.href = "logout.php";
       }, 3000);
       return;
     } else {
@@ -33,27 +32,6 @@ $(document).on('click', '#btnLogin', function (e) {
       //document.location.href = "home.php"
       return;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   });
 });
 

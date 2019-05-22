@@ -30,8 +30,8 @@ $(document).ready(function() {
         <div class="unit-5 overlay" style="background-image: url('images/hero_2.jpg');">
       <div class="container text-center">
         <h2 id="${escapeHtml(
-          jData[0]["id"]
-        )}" class="mb-0">${escapeHtml(jData[0]["title"])}</h2>
+          jData.questions[0]["id"]
+        )}" class="mb-0">${escapeHtml(jData.questions[0]["title"])}</h2>
       </div>
     </div>
 
@@ -51,24 +51,24 @@ $(document).ready(function() {
               <div class="mb-4 mb-md-5 mr-5">
                <div class="job-post-item-header d-flex align-items-center">
                  <h3 class="mr-3 text-black h4">${escapeHtml(
-                   jData[0]["title"]
+                   jData.questions[0]["title"]
                  )}</h3>
                  <div class="badge-wrap">
                   <span class="border border-warning text-warning py-2 px-4 rounded">${escapeHtml(
-                    jData[0]["date"]
+                    jData.questions[0]["date"]
                   )}</span>
                  </div>
                </div>
                <div class="d-block d-md-flex">
                  <div class="mr-2"><span class="fl-bigmug-line-portfolio23"></span> The questions difficulty level:</div>
                  <div><span class="font-weight-bold">${escapeHtml(
-                   jData[0]["level"]
+                   jData.questions[0]["level"]
                  )}</span></div>
 
 
                </div>
                <p>Posted by <span class="font-weight-bold">${escapeHtml(
-                 jData[0]["username"]
+                 jData.questions[0]["username"]
                )}</span></p>
               </div>
 
@@ -77,14 +77,38 @@ $(document).ready(function() {
 
 
               <h5>Question</h5>
-              <p>${escapeHtml(jData[0]["question"])}
+              <p>${escapeHtml(jData.questions[0]["question"])}
               </p>
 
               </div>
               </div>
 
 
+<<<<<<< HEAD
           
+=======
+          <div class="col-lg-4">
+
+
+            <div class="p-4 mb-3 bg-white">
+            <h3>Your answer</h3>
+
+            <form>
+            <textarea placeholder="Answer" id="txtAnswer"></textarea>
+            ${
+              jData.isLoggedIn === 1
+                ? '<button type="button" class="btn btn-primary  py-2 px-4" id="btnAnswer">Submit answer</button>'
+                : ""
+            }
+            </form>
+            <br>
+            <p id="response"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+>>>>>>> 23f721a89b948488d5bf41fffa2fa59cb44f1330
         `);
   });
 

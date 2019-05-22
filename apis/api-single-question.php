@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../db.php';
-
+session_start();
 
 try {
 
@@ -28,8 +28,12 @@ try {
     $sQuery->execute();
     $aQuestions = $sQuery->fetchAll();
 
+    $isLoggedIn = 0;
+    if(isset($_SESSION['jUser'])) $isLoggedIn = 1;
 
-  echo json_encode($aQuestions);
+
+ echo '{"questions": '.json_encode($aQuestions).', "isLoggedIn": '.$isLoggedIn.'}';
+  // echo json_encode($aQuestions);
 } catch (PDOException $e) {
   echo '{"status":0, "message":"error to signUp", "code":"001"' . $e . '}';
 }
