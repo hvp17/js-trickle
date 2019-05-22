@@ -84,9 +84,6 @@ $(document).ready(function() {
               </div>
 
 
-<<<<<<< HEAD
-          
-=======
           <div class="col-lg-4">
 
 
@@ -108,7 +105,6 @@ $(document).ready(function() {
         </div>
       </div>
     </div>
->>>>>>> 23f721a89b948488d5bf41fffa2fa59cb44f1330
         `);
   });
 
