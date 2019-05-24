@@ -8,8 +8,6 @@ $(document).on("click", "#btnLogin", function(e) {
     data: $("#frmLogin").serialize(),
     dataType: "JSON"
   }).always(function(jData) {
-    console.log(jData);
-
     if (jData.status === 1 && jData.token === "login_secure") {
       document.location.href = "new-post.php";
       return;
@@ -27,9 +25,6 @@ $(document).on("click", "#btnLogin", function(e) {
       }, 3000);
       return;
     } else {
-      console.log(jData["attempts"]);
-
-      //document.location.href = "home.php"
       return;
     }
   });

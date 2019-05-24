@@ -19,13 +19,12 @@ function escapeHtml(unsafe) {
 /*****************************************************
  ::SHOW TAGS
  ******************************************************/
-$(document).ready(function () {
+$(document).ready(function() {
   $.ajax({
     url: "apis/api-show-tags.php",
     dataType: "json"
-  }).always(function (jData) {
+  }).always(function(jData) {
     for (var i in jData) {
-      // console.log(i, 'jData[i]')
       $("#txtTags").prepend(
         `<button type="button" id="${escapeHtml(
           jData[i].id
@@ -36,7 +35,7 @@ $(document).ready(function () {
 });
 
 // Activate different tags
-$(document).on("click", "button.tag", function () {
+$(document).on("click", "button.tag", function() {
   const tag = $(this);
   if (!tag.hasClass("active")) {
     $(tag).addClass("active");
@@ -47,13 +46,11 @@ $(document).on("click", "button.tag", function () {
   }
 });
 
-////////////////////////////////////////////////////// TOMAS HELP. We want to remove the parent object of the span when
-////////////////////////////////////////////////////// clicking on the specific span with the class close
-$(document).on("click", ".close", function () {
+$(document).on("click", ".close", function() {
   if (
     $(this)
-    .parent()
-    .hasClass("active")
+      .parent()
+      .hasClass("active")
   ) {
     $(this)
       .parent()
@@ -62,9 +59,9 @@ $(document).on("click", ".close", function () {
 
   if (
     $(this)
-    .parent()
-    .find("button")
-    .hasClass("active")
+      .parent()
+      .find("button")
+      .hasClass("active")
   ) {
     $(this)
       .parent()
@@ -93,37 +90,33 @@ $(document).on("click", ".close", function () {
 /*******************************************************************************
                                 ::INSERT QUESTION
 ********************************************************************************/
-$(document).on("click", "#btnQuestion", function () {
+$(document).on("click", "#btnQuestion", function() {
   var numberOfTags = $(".active").length;
   if (!numberOfTags > 0) {
-    console.log("der skal være minimum 1 tag");
   } else {
     var tags = $("#tagsArray")
       .find(".active")
-      .map(function () {
+      .map(function() {
         return $(this).text();
       })
       .get()
       .join(",");
   }
-  console.log(tags);
 
   $.ajax({
     url: "apis/api-insert-question.php",
     method: "POST",
     data: $("#frmQuestion").serialize() + `&txtTags=${tags}`,
     dataType: "JSON"
-  }).always(function (jData) {
-    console.log(jData);
-
+  }).always(function(jData) {
     if (jData.status === 1) {
       swal({
         title: "Good job!",
         text: "Your question has been successfully inserted!",
         icon: "success",
-        button: "Close!",
-      }).then(function () {
-        window.location = 'index.php'
+        button: "Close!"
+      }).then(function() {
+        window.location = "index.php";
       });
       return;
     } else {
@@ -131,17 +124,17 @@ $(document).on("click", "#btnQuestion", function () {
         title: "Error!",
         text: "Try again..",
         icon: "error",
-        button: "Close!",
+        button: "Close!"
       });
       return;
     }
   });
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
   //input type text focusin
-  $("input[type=text]").focusin(function () {
-    $(this).keyup(function () {
+  $("input[type=text]").focusin(function() {
+    $(this).keyup(function() {
       if ($(this).val() === "") {
         $(this).css("border", "1px solid red");
       } else {
@@ -150,8 +143,8 @@ $(document).ready(function () {
     });
   });
   //input type textarea focusin
-  $("textarea").focusin(function () {
-    $(this).keyup(function () {
+  $("textarea").focusin(function() {
+    $(this).keyup(function() {
       if ($(this).val() === "") {
         $(this).css("border", "1px solid red");
       } else {
@@ -161,7 +154,7 @@ $(document).ready(function () {
   });
 
   //input type text focusout
-  $("input[type=text]").focusout(function () {
+  $("input[type=text]").focusout(function() {
     if ($(this).val() === "") {
       $(this).css("border", "1px solid red");
     } else {
@@ -170,7 +163,7 @@ $(document).ready(function () {
   });
 
   //input type textarea focusout
-  $("textarea").focusout(function () {
+  $("textarea").focusout(function() {
     if ($(this).val() === "") {
       $(this).css("border", "1px solid red");
     } else {
@@ -182,18 +175,17 @@ $(document).ready(function () {
 /*******************************************************************************
                             ::SHOW ALL QUESTIONS
 *******************************************************************************/
-$(document).ready(function () {
+$(document).ready(function() {
   $.ajax({
     url: "apis/api-show-all-questions.php",
     dataType: "JSON"
-  }).always(function (jData) {
-    console.log("jData ", jData);
+  }).always(function(jData) {
     //${jData[i]['sneaker_id']}
-    $.each(jData, function (i, item) {
+    $.each(jData, function(i, item) {
       $(".questions-wrap").append(`
                 <a href="single-question.php?id=${escapeHtml(
-                  jData[i]["id"])
-                }" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
+                  jData[i]["id"]
+                )}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
                     <div class="company-logo blank-logo text-center text-md-left pl-3">
                         <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
                     </div>

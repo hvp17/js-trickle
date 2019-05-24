@@ -37,10 +37,8 @@ $(document).ready(function() {
 ***************************/
 $("#file").change(function() {
   var file = $(".fileToUpdate")[0].files[0];
-  // console.log("file ", file);
   var fd = new FormData();
   fd.append("file", file);
-  // console.log("fd ", fd);
 
   $.ajax({
     url: "apis/api-edit-user-image.php",
@@ -49,9 +47,7 @@ $("#file").change(function() {
     contentType: false,
     processData: false,
     dataType: "JSON"
-  }).always(function(jData) {
-    console.log(jData);
-  });
+  }).always(function(jData) {});
 });
 
 /*********************
@@ -59,13 +55,11 @@ $("#file").change(function() {
 **********************/
 
 function readURL(input) {
-  // console.log(input);
   if (input.files && input.files[0]) {
     var sIdImageToModify = $(input)
       .parent()
       .parent()
       .find("#imgUser");
-    // console.log(" $(this) ", sIdImageToModify);
 
     var reader = new FileReader();
     reader.onload = function(e) {
@@ -100,7 +94,6 @@ $(document).ready(function() {
       var dates = jData[0]["question_date"].split(",");
       var titles = jData[0]["questions_title"].split(",");
       var qIds = jData[0]["questions_id"].split(",");
-      console.log(jData[0]);
       $.each(dates, function(i, item) {
         $("#question-container tbody").append(`
             <tr>
@@ -165,7 +158,6 @@ $(document).on("click", ".btnEdit", function() {
     data: $("#frmEdit").serialize(),
     dataType: "JSON"
   }).always(function(jData) {
-    console.log("jData ", jData);
     if (jData.status === 1) {
       swal({
         title: "Success!",
@@ -197,7 +189,6 @@ $(document).ready(function() {
     url: "apis/api-show-user-answers.php",
     dataType: "JSON"
   }).always(function(jData) {
-    console.log("jDataPROFILE-ANSWERS ", jData);
     $.each(jData, function(i, item) {
       $("#answer-container tbody").append(`
                <tr>
