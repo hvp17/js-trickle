@@ -6,7 +6,6 @@ if (!$_SESSION['jUser']) {
 }
 require_once "components/top.php";
 require_once __DIR__ . '/class/token.php';
-
 ?>
 <div class="container">
     <div class="row my-2">

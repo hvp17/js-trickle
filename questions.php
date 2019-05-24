@@ -12,21 +12,13 @@ require_once "components/top.php";
     </div>
 
 <div class="container site-section">
-    
+
     <br>
     <div id="questions" data-id="<?php echo $_GET['tag']?>"  class="rounded border"></div>
 </div>
-
-
-
-
 
 
 <?php
 $sScript = 'questions-from-tag.js';
 require_once "components/bottom.php";
 ?>
-
-</body>
-
-</html>

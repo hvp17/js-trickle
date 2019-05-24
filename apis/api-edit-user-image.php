@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/../db.php';
 $file =  $_FILES['file']['name'];
-//start_session();
 $db->beginTransaction();
 
 $iImageId = '';
@@ -34,7 +33,7 @@ try {
     $sQuery->bindValue(':iUserId', $_SESSION['jUser']);
     $sQuery->bindValue(':iImageId', $iImageId);
     $sQuery->execute();
-    echo ($sQuery->rowCount()); //$iImageId;
+    echo ($sQuery->rowCount());
 
     if ($sQuery->rowCount()) {
         echo '{"status":1, "message":"success form 2"}';

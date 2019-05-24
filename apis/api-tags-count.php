@@ -1,5 +1,4 @@
   <?php
-
 require_once __DIR__.'/../db.php';
 try{
   $sQuery = $db->prepare('SELECT tags.id, tags.name, count(tags.name) as numberOfQuestions FROM tags

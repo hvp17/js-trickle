@@ -1,17 +1,7 @@
 <?php
 ///////    SYNTAX ERROR CHECK    ////////////
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 ///////    END SYNTAX ERROR CHECK    ////////////
-/************************************
-    ::ESCAPE STRING AGAINS XSS
- *************************************/
-function _e($string)
-{
-    echo htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
-}
-/************************************
-    ::END ESCAPE STRING AGAINS XSS
- *************************************/
 
 if (
     empty($_POST['sAnswer'])
@@ -30,10 +20,10 @@ try {
     $sQuery = $db->prepare('UPDATE answers
     SET answer = :sAnswer
     WHERE
-    id = :iAnswerId AND user_fk = :iUserFK');                        
+    id = :iAnswerId AND user_fk = :iUserFK');
 
     $sQuery->bindValue(':iAnswerId', $_POST['iAnswerId']);
-    $sQuery->bindValue(':iUserFK', $_SESSION['jUser']['id']);
+    $sQuery->bindValue(':iUserFK', $_SESSION['jUser']);
     $sQuery->bindValue(':sAnswer', $_POST['sAnswer']);
     $sQuery->execute();
 

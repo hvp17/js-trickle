@@ -11,16 +11,10 @@ require_once __DIR__ . '/class/token.php';
   </div>
 </div>
 
-
-
-
-
 <div class="site-section bg-light">
   <div class="container">
     <div class="row">
-
       <div class="col-md-12 col-lg-8 mb-5 mx-auto">
-
         <form action="#" class="p-5 bg-white" id="frmLogin" novalidate>
           <div class="row form-group mb-5">
             <div class="col-md-12 mb-3 mb-md-0">
@@ -33,7 +27,6 @@ require_once __DIR__ . '/class/token.php';
               <label class="font-weight-bold" for="password">Password</label>
               <input maxlength="20" minlength="8" type="password" id="txtPassword" name="txtPassword" class="form-control" value="" required>
               <input type="hidden" name="token" value="<?= Token::generate() ?>">
-
             </div>
           </div>
           <div class="row form-group">
@@ -45,20 +38,11 @@ require_once __DIR__ . '/class/token.php';
             </div>
             <div class="error"></div>
           </div>
-
-
         </form>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
 
 <?php
 $sScript = 'login.js';

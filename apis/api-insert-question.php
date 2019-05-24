@@ -1,6 +1,6 @@
 <?php
 ///////    SYNTAX ERROR CHECK    ////////////
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 ///////    END SYNTAX ERROR CHECK    ////////////
 if (
   empty($_POST['txtTitle']) ||

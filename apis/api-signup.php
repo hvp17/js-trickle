@@ -1,4 +1,7 @@
 <?php
+///////    SYNTAX ERROR CHECK    ////////////
+ini_set('display_errors', 0);
+///////    END SYNTAX ERROR CHECK    ////////////
 session_start();
 require_once __DIR__ . '/../class/token.php';
 if (
@@ -19,7 +22,6 @@ if (!Token::check($_POST['token'])) {
   echo '{"token":"login_NOT_secure"}';
   exit;
 }
-
 
 $password = $_POST['txtPassword'];
 
@@ -44,11 +46,6 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
   }
 }
 
-
-
-///////    SYNTAX ERROR CHECK    ////////////
-ini_set('display_errors', 1);
-///////    END SYNTAX ERROR CHECK    ////////////
 
 //HASHING
 $password = $_POST['txtPassword'];

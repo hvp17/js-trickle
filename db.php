@@ -14,6 +14,3 @@ try{
   echo '{"status":"err","message":"cannot connect to database"}';
   exit();
 }
-
-
-

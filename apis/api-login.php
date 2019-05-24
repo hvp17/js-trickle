@@ -4,6 +4,8 @@ session_start();
 //CONNECT TO GENERATE AND CHECK THE RANDOM TOKEN
 //AGAINS CSRF ATTACK
 require_once __DIR__ . '/../class/token.php';
+//CONNECT TO DB
+require_once __DIR__ . '/../db.php';
 
 //VALIDATE BACKEND
 if (
@@ -25,8 +27,7 @@ if (
 
 
 
-//CONNECT TO DB
-require_once __DIR__ . '/../db.php';
+
 $password = $_POST['txtPassword'];
 
 $pepper = "s3cr3T3017@91";

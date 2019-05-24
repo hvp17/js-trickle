@@ -29,10 +29,6 @@ require_once "components/top.php";
   </div>
 </div>
 
-
-
-
-
 <div class="site-section bg-light">
   <div class="container">
     <div class="row">
@@ -46,13 +42,8 @@ require_once "components/top.php";
           <button class="btn btn-outline-primary">Recent Answers</button>
           <button class="btn btn-outline-primary">Popular Questions</button>
         </div>
-
         <div class="rounded border questions-wrap">
-
-
-
         </div>
-
         <div class="col-md-12 text-center mt-5">
           <a href="tags.php" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Browse Tags</a>
         </div>
@@ -62,14 +53,7 @@ require_once "components/top.php";
   </div>
 </div>
 
-
-
 <?php
 $sScript = 'question.js';
 require_once "components/bottom.php";
 ?>
-
-
-</body>
-
-</html>
