@@ -1,10 +1,11 @@
 <?php
+session_start();
 require_once __DIR__ . '/../db.php';
 $file =  $_FILES['file']['name'];
 //start_session();
 $db->beginTransaction();
 
-
+$iImageId = '';
 try {
     if ($file) {
         if (move_uploaded_file(
@@ -12,6 +13,7 @@ try {
             '../images/users/' . $_FILES['file']['name']
         )) {
             $sImage = $_FILES['file']['name'];
+
             $sQuery = $db->prepare('INSERT INTO images VALUES (null, :sImg)');
             $sQuery->bindValue(':sImg', $sImage);
             $sQuery->execute();
@@ -27,14 +29,17 @@ try {
 }
 
 try {
-    $sQuery = $db->prepare('UPDATE users SET image_fk=:iImageId WHERE id = :iUserId ');
-    $sQuery->bindValue(':iUserId', 1); //$_SESSION['jUser']['id']);
+
+    $sQuery = $db->prepare('UPDATE users SET users.image_fk=:iImageId WHERE users.id = :iUserId ');
+    $sQuery->bindValue(':iUserId', $_SESSION['jUser']);
     $sQuery->bindValue(':iImageId', $iImageId);
     $sQuery->execute();
+    echo ($sQuery->rowCount()); //$iImageId;
 
     if ($sQuery->rowCount()) {
         echo '{"status":1, "message":"success form 2"}';
         $db->commit();
+        echo 'lalalla';
         exit;
     }
 } catch (PDOException $e) {

@@ -4,8 +4,13 @@ require_once __DIR__ . '/../db.php';
 
 /*********************
 :: SHOW USER DETAIL
-**********************/
- try {
+ **********************/
+
+
+
+
+
+try {
 
     $sQuery = $db->prepare("SELECT
     users.id as user_id,
@@ -22,13 +27,10 @@ require_once __DIR__ . '/../db.php';
     INNER JOIN users ON users.id = questions.user_fk
     INNER JOIN questions_tags ON questions.id = questions_tags.questions_fk
     where users.id = :iUserId");
-    $sQuery->bindValue(':iUserId', $_SESSION['jUser']['id']);
+    $sQuery->bindValue(':iUserId', $_SESSION['jUser']);
     $sQuery->execute();
     $aQS = $sQuery->fetchAll();
     echo json_encode($aQS);
-
-
-
 } catch (PDOException $e) {
     echo '{"status":0, "message":"error to signUp", "code":"001"' . $e . '}';
 }

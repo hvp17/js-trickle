@@ -5,28 +5,30 @@ function escapeHtml(unsafe) {
     if (!unsafe) return "";
     if (unsafe.trim() === "") return unsafe;
     return unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
-  
-  /*************************************************************************
-  ::END ESCAPE STRING AGAINS XSS
-  **************************************************************************/
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
-$(document).ready(function(){
+/*************************************************************************
+::END ESCAPE STRING AGAINS XSS
+**************************************************************************/
+
+$(document).ready(function () {
     var sTagName = $('#questions').data('id')
-    console.log(sTagName)
-        $.ajax({
-            url: 'apis/api-show-questions-from-tag.php',
-            data: {sTagName:sTagName},
-            dataType: 'json'
-        }).always(function(jData){
-            console.log(jData,'jData')
-            $.each(jData, function (i, item) {
-                console.log(jData[i], 'jData[i]')
+
+    $.ajax({
+        url: 'apis/api-show-questions-from-tag.php',
+        data: {
+            sTagName: sTagName
+        },
+        dataType: 'json'
+    }).always(function (jData) {
+
+        $.each(jData, function (i, item) {
+
             $('#questions').prepend(`
             <a href="single-question.php?id=${escapeHtml(
                 jData[i]["id"])
@@ -40,7 +42,7 @@ $(document).ready(function(){
                           <p class="description">
                               ${escapeHtml(jData[i]["question"])}
                           </p>
-    
+
                           <div class="d-block d-lg-flex flex-column">
                           <div class="mr-3"><i class="fas fa-asterisk"></i> ${escapeHtml(
                             jData[i]["level"]
@@ -51,7 +53,7 @@ $(document).ready(function(){
                               <div><i class="fas fa-clock"></i> ${escapeHtml(
                                 jData[i]["date"]
                               )}</div>
-    
+
                           </div>
                       </div>
                   </div>
@@ -63,8 +65,8 @@ $(document).ready(function(){
                       </div>
                   </div>
               </a>
-              
+
             `)
-        } )
         })
     })
+})

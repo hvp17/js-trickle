@@ -6,7 +6,7 @@ if (!$_SESSION['jUser']) {
   header('Location: login.php');
   exit;
 }
-
+require_once __DIR__ . '/class/token.php';
 require_once "components/top.php";
 ?>
 
@@ -84,7 +84,7 @@ require_once "components/top.php";
             <div class="col-md-12 mb-3 mb-md-0">
               <label for="option-user-level-3">
                 <input type="radio" id="option-user-level-3" class="user-level" name="txtLevel" value="3" required> Expert
-                </label>
+              </label>
             </div>
 
           </div>
@@ -101,8 +101,8 @@ require_once "components/top.php";
               <div class="tags-wrapper" id="tagsArray"></div>
             </div>
           </div>
-              <div id="txtTags" name="txtTags">
-              </div>
+          <div id="txtTags" name="txtTags">
+          </div>
 
           <!-----------------------------
       ::QUESTION DESCRIPTION::
@@ -114,11 +114,12 @@ require_once "components/top.php";
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
               <textarea id="txtDescription" name="txtDescription" class="form-control" cols="30" rows="5" required></textarea>
+              <input type="hidden" name="token" value="<?= Token::generate() ?>">
             </div>
           </div>
 
           <div class="row form-group">
-          <div class="g-recaptcha" data-sitekey="6LdDM6IUAAAAAD18nn5YfuEFt2nHUyFEbWLP5Xt-"></div>
+            <div class="g-recaptcha" data-sitekey="6LdDM6IUAAAAAD18nn5YfuEFt2nHUyFEbWLP5Xt-"></div>
 
             <div class="col-md-12">
               <button type="button" id="btnQuestion" class="btn btn-primary  py-2 px-5">Submit Question</button>

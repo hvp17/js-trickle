@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once __DIR__ . '/../class/token.php';
 if (
   empty($_POST['txtUsername']) ||
   empty($_POST['txtEmail']) ||
@@ -13,6 +15,12 @@ if (
   exit;
 }
 
+if (!Token::check($_POST['token'])) {
+  echo '{"token":"login_NOT_secure"}';
+  exit;
+}
+
+
 $password = $_POST['txtPassword'];
 
 $uppercase = preg_match('@[A-Z]@', $password);
@@ -20,9 +28,9 @@ $lowercase = preg_match('@[a-z]@', $password);
 $number    = preg_match('@[0-9]@', $password);
 $specialChars = preg_match('@[^\w]@', $password);
 
-if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
-    echo '{"error":  "Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character"}';
-    exit;
+if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+  echo '{"error":  "Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character"}';
+  exit;
 }
 
 if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
@@ -47,9 +55,9 @@ $password = $_POST['txtPassword'];
 $options = [
   'cost' => 10,
 ];
-  
+
 $pepper = "s3cr3T3017@91";
-$hashed_password =  password_hash($password.$pepper, PASSWORD_DEFAULT, $options);
+$hashed_password =  password_hash($password . $pepper, PASSWORD_DEFAULT, $options);
 
 require_once __DIR__ . '/../db.php';
 try {
@@ -72,4 +80,5 @@ try {
   }
 } catch (PDOException $e) {
   echo '{"status":0, "message":"error", "code":"001", "line":' . __LINE__ . '}';
+  var_dump($e);
 }

@@ -1,12 +1,13 @@
 /* trigger the click */
-$("#frmSignup").submit(function(e) {
+$("#frmSignup").submit(function (e) {
   e.preventDefault();
   $.ajax({
     url: "apis/api-signup.php",
     method: "POST",
     data: $("#frmSignup").serialize(),
     dataType: "JSON"
-  }).always(function(jData) {
+  }).always(function (jData) {
+    console.log("jData ", jData);
     if (jData.error) {
       $(".passError").text(jData.error);
     }

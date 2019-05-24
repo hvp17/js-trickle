@@ -16,13 +16,13 @@ function escapeHtml(unsafe) {
   ::END ESCAPE STRING AGAINS XSS
   **************************************************************************/
 
-$(document).ready(function() {
+$(document).ready(function () {
   $.ajax({
     url: "apis/api-tags-count.php",
     dataType: "json"
-  }).always(function(jData) {
+  }).always(function (jData) {
     for (var i in jData) {
-      console.log(jData[i], "jData[i]");
+
       $("#allTags").prepend(`
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
             <a href="questions.php?tag=${escapeHtml(

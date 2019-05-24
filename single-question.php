@@ -1,26 +1,31 @@
 <?php
+session_start();
 require_once "components/top.php";
+require_once __DIR__ . '/class/token.php';
+/************************************
+::ESCAPE STRING AGAINS XSS
+ *************************************/
+function _e($string)
+{
+  echo htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
+}
+/************************************
+::END ESCAPE STRING AGAINS XSS
+ *************************************/
+
 ?>
 
-<div class="content" id="<?php echo $_GET['id']; ?>">
-<div class="col-lg-4">
+<div class="content" id="<?php echo _e($_GET['id']); ?>">
 
-
-            <div class="p-4 mb-3 bg-white">
-            <h3>Your answer</h3>
-
-            <form>
-            <textarea placeholder="Answer" id="txtAnswer"></textarea>
-            <button type="button" class="btn btn-primary  py-2 px-4" id="btnAnswer">Submit answer</button>
-
-            </form>
-            <br>
-            <p id="response"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <input type="hidden" name="token" value="<?= Token::generate() ?>">
+  </form>
+  <br>
+  <p id="response"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 

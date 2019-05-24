@@ -24,7 +24,7 @@ require_once __DIR__ . '/class/token.php';
         <form action="#" class="p-5 bg-white" id="frmLogin" novalidate>
           <div class="row form-group mb-5">
             <div class="col-md-12 mb-3 mb-md-0">
-             <label class="font-weight-bold" for="email">Email</label>
+              <label class="font-weight-bold" for="email">Email</label>
               <input type="text" id="txtEmail" name="txtEmail" class="form-control" value="eon@e.com" required>
             </div>
           </div>
@@ -64,4 +64,3 @@ require_once __DIR__ . '/class/token.php';
 $sScript = 'login.js';
 require_once "components/bottom.php";
 ?>
-

@@ -46,19 +46,17 @@
 
 <body>
   <?php
-  //require_once ('cspheader.php');
-
-session_start();
+  session_start();
   if ($_SESSION['jUser']) {
-    //AUTOMATIC LOGOUT AFTER 15 MINUTES
-  if ((time() - $_SESSION['last_login_timestamp']) > 3600) //900 = 15*60
-  {
-    header('Location: logout.php');
-    exit;
-  } else {
-    //AUTOMATIC UPDATE TIME IF INTERACTING WITH WEBSITE
-    $_SESSION['last_login_timestamp'] = time();
-  }
+    //AUTOMATIC LOGOUT AFTER 1 HOUR
+    if ((time() - $_SESSION['last_login_timestamp']) > 3600) //900 = 15*60
+    {
+      header('Location: logout.php');
+      exit;
+    } else {
+      //AUTOMATIC UPDATE TIME IF INTERACTING WITH WEBSITE
+      $_SESSION['last_login_timestamp'] = time();
+    }
 
     ?>
 
@@ -95,7 +93,7 @@ session_start();
 
 
                         <!--                         <li><a href="new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Ask Question</span></a></li>
-                   -->
+                                                             -->
                         <li><a href="new-post.php"><button class="btn btn-primary text-white">
                               <span class="icon-plus mr-3"></span>Ask Question
                             </button></a></li>
@@ -109,16 +107,16 @@ session_start();
                               <!--/span-->
                             </button>
                             <ul class="dropdown-menu">
-                            <li><a href="profile.php">Profile</a></li>
+                              <li><a href="profile.php">Profile</a></li>
                               <li><a href="logout.php">Logout</a></li>
 
                             </ul>
                           </div>
                           <!--a href="logout.php">
-                                            <span class="bg-primary text-white py-3 px-4 rounded">
-                                              <i class="fas fa-user"></i>Logout
-                                            </span>
-                                          </a-->
+                                                                                      <span class="bg-primary text-white py-3 px-4 rounded">
+                                                                                        <i class="fas fa-user"></i>Logout
+                                                                                      </span>
+                                                                                    </a-->
                         </li>
                       </ul>
                     </div>
