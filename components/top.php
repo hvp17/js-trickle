@@ -46,8 +46,20 @@
 
 <body>
   <?php
-  session_start();
+  //require_once ('cspheader.php');
+
+session_start();
   if ($_SESSION['jUser']) {
+    //AUTOMATIC LOGOUT AFTER 15 MINUTES
+  if ((time() - $_SESSION['last_login_timestamp']) > 3600) //900 = 15*60
+  {
+    header('Location: logout.php');
+    exit;
+  } else {
+    //AUTOMATIC UPDATE TIME IF INTERACTING WITH WEBSITE
+    $_SESSION['last_login_timestamp'] = time();
+  }
+
     ?>
 
     <div class="site-wrap">

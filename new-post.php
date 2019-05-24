@@ -5,16 +5,6 @@ session_start();
 if (!$_SESSION['jUser']) {
   header('Location: login.php');
   exit;
-} else {
-  //AUTOMATIC LOGOUT AFTER 15 MINUTES
-  if ((time() - $_SESSION['last_login_timestamp']) > 90000) //900 = 15*60
-  {
-    header('Location: logout.php');
-    exit;
-  } else {
-    //AUTOMATIC UPDATE TIME IF INTERACTING WITH WEBSITE
-    $_SESSION['last_login_timestamp'] = time();
-  }
 }
 
 require_once "components/top.php";
