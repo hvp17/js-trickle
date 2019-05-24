@@ -51,7 +51,7 @@ $('#file').change(function () {
         processData: false,
         dataType: "JSON"
     }).always(function (jData) {
-        // console.log(jData)
+        console.log(jData)
     })
 
 })
@@ -81,7 +81,7 @@ function readURL(input) {
     }
 }
 
- 
+
 /*********************
 :: END UPDATE IMG URL
 **********************/
@@ -96,26 +96,32 @@ $(document).ready(function () {
         url: "apis/api-show-user-profile.php",
         dataType: "JSON"
     }).always(function (jData) {
-
         $('#user-details-container').append(`
             <p class="pUsername">${escapeHtml(jData[0]['username'])}</p>
              `)
 
+        if (dates || titles || qIds) {
+            var dates = jData[0]['question_date'].split(',')
+            var titles = jData[0]['questions_title'].split(',')
+            var qIds = jData[0]['questions_id'].split(',')
+            console.log(jData[0])
+            $.each(dates, function (i, item) {
 
-        var dates = jData[0]['question_date'].split(',')
-        var titles = jData[0]['questions_title'].split(',')
-        var qIds = jData[0]['questions_id'].split(',')
-        console.log(jData[0])
-        $.each(dates, function (i, item) {
-
-            $('#question-container tbody').append(`
+                $('#question-container tbody').append(`
             <tr>
             <td>
                 <span class="float-right font-weight-bold" id="${escapeHtml(qIds[i])}">${escapeHtml(dates[i])}</span> ${escapeHtml(titles[i])}
             </td>
             </tr>`)
-        })
+            })
 
+        } else {
+            $('#question-container tbody').append(`
+            <tr>
+            </tr>`)
+
+
+        }
 
 
         $('#frmEdit').append(`
@@ -154,6 +160,8 @@ $(document).ready(function () {
             `)
 
 
+
+
     })
 
 })
@@ -167,6 +175,7 @@ $(document).on('click', '.btnEdit', function () {
         data: $('#frmEdit').serialize(),
         dataType: "JSON"
     }).always(function (jData) {
+        console.log("jData ", jData);
         if (jData.status === 1) {
             swal({
                 title: "Success!",
@@ -201,7 +210,7 @@ $(document).ready(function () {
         url: "apis/api-show-user-answers.php",
         dataType: "JSON"
     }).always(function (jData) {
-        //console.log("jDataPROFILE-ANSWERS ", jData);
+        console.log("jDataPROFILE-ANSWERS ", jData);
         $.each(jData, function (i, item) {
             $('#answer-container tbody').append(`
                <tr>

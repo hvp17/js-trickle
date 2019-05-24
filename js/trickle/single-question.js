@@ -3,7 +3,7 @@
 ************************************************************************/
 function escapeHtml(unsafe) {
   if (!unsafe) return "";
-  if (unsafe.trim() === "") return unsafe;
+  if (typeof unsafe === "number" || unsafe.trim() === "") return unsafe;
   return unsafe
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -15,7 +15,7 @@ function escapeHtml(unsafe) {
 /*************************************************************************
 ::END ESCAPE STRING AGAINS XSS
 **************************************************************************/
-$(document).ready(function() {
+$(document).ready(function () {
   var questionId = $(".content").attr("id");
 
   $.ajax({
@@ -24,9 +24,9 @@ $(document).ready(function() {
       questionId: questionId
     },
     dataType: "JSON"
-  }).always(function(jData) {
-    console.log(jData);
-    $(".content").prepend(`
+  }).always(function (jData) {
+
+    $(".content").append(`
         <div class="unit-5 overlay" style="background-image: url('images/hero_2.jpg');">
       <div class="container text-center">
         <h2 id="${escapeHtml(
@@ -97,14 +97,6 @@ $(document).ready(function() {
                 ? '<button type="button" class="btn btn-primary  py-2 px-4" id="btnAnswer">Submit answer</button>'
                 : ""
             }
-            </form>
-            <br>
-            <p id="response"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
         `);
   });
 
@@ -114,12 +106,12 @@ $(document).ready(function() {
       questionId: questionId
     },
     dataType: "JSON"
-  }).always(function(jData) {
-    console.log(jData, "jData");
+  }).always(function (jData) {
+
     for (var i in jData.answers) {
       $("#answers").prepend(`
     <div data-answer-id=${jData.answers[i].id} class="col-md-8 answer">
-    
+
         <h4 id="${escapeHtml(jData.answers[i].id)}">User ${escapeHtml(
         jData.answers[i].username
       )} </h4>
@@ -128,7 +120,7 @@ $(document).ready(function() {
            ${jData.user_id == jData.answers[i].user_id &&
              `<button data-user-id=${
                jData.user_id
-             } class="btn btn-primary btnEditAnswer">Edit</button>`} 
+             } class="btn btn-primary btnEditAnswer">Edit</button>`}
 
             <p class="answer-body">${escapeHtml(jData.answers[i].answer)}</p>
             </div>
@@ -139,7 +131,7 @@ $(document).ready(function() {
   });
 });
 
-$(document).on("click", ".btnEditAnswer", function() {
+$(document).on("click", ".btnEditAnswer", function () {
   const answerBody = $(this).siblings(".answer-body");
 
   const answer_id = $(this)
@@ -159,30 +151,31 @@ $(document).on("click", ".btnEditAnswer", function() {
       },
       dataType: "JSON",
       method: "POST"
-    }).always(function(jData) {
+    }).always(function (jData) {
       $(answerBody).attr("contenteditable", false);
     });
     $(this).text("Edit");
   }
 });
 
-$(document).on("click", "#btnAnswer", function() {
+$(document).on("click", "#btnAnswer", function () {
   var questionId = $(".content").attr("id");
-  console.log("questionId ", questionId);
+  var token = $('input[type=hidden]').val();
   var answer = $(this)
     .siblings()
     .val();
-  console.log("answer ", answer);
+
   $.ajax({
     url: "apis/api-insert-answer.php",
     data: {
       answer: answer,
-      questionId: questionId
+      questionId: questionId,
+      token: token
     },
     dataType: "JSON",
     method: "POST"
-  }).always(function(jData) {
-    console.log(jData);
+  }).always(function (jData) {
+
     if (jData.code == 212) {
       $("p#response").removeClass("valid-response");
       $("p#response").text("You can not submit a blank answer.");

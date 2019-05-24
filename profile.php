@@ -5,6 +5,8 @@ if (!$_SESSION['jUser']) {
     exit;
 }
 require_once "components/top.php";
+require_once __DIR__ . '/class/token.php';
+
 ?>
 <div class="container">
     <div class="row my-2">
@@ -109,6 +111,7 @@ require_once "components/top.php";
 
                 <div class="tab-pane" id="edit">
                     <form role="form" class="profile-form-container" id="frmEdit">
+                        <input type="hidden" name="token" value="<?= Token::generate() ?>">
                     </form>
                 </div>
             </div>

@@ -23,26 +23,33 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
 }
 
 session_start();
+require_once __DIR__ . '/../class/token.php';
 require_once __DIR__ . '/../db.php';
+
+
+if (!Token::check($_POST['token'])) {
+  echo '{"token":"NOT_secure"}';
+  exit;
+}
+
 
 $db->beginTransaction();
 try {
   $sQuery = $db->prepare('INSERT INTO questions
                             VALUES (null, :iUserFK, :sTitle, :iLevelFK, :sDescription, null)');
 
-  $sQuery->bindValue(':iUserFK', $_SESSION['jUser']['id']);
+  $sQuery->bindValue(':iUserFK', $_SESSION['jUser']);
   $sQuery->bindValue(':sTitle', $_POST['txtTitle']);
   $sQuery->bindValue(':iLevelFK', $_POST['txtLevel']);
   $sQuery->bindValue(':sDescription', $_POST['txtDescription']);
   $sQuery->execute();
 
-  if( $sQuery->rowCount() ){
+  if ($sQuery->rowCount()) {
     $iPostId = $db->lastInsertId();
     echo '{"status":1, "message":"Indlæg blev tilføjet"}';
-
   }
 } catch (PDOException $e) {
-  echo '{"status":0, "message":"error", "code":"001", "error":'.$exception.'}';
+  echo '{"status":0, "message":"error", "code":"001", "error":' . $exception . '}';
   $db->rollBack();
   exit;
 }
@@ -51,39 +58,34 @@ try {
 
 //******************************* SELECT TAG ID BASED ON TAG NAME AND LOOP THE LAST 2 STATEMENTS*/
 
-$aTags = explode (",", $_POST['txtTags']);
-foreach( $aTags as $aTag ){
+$aTags = explode(",", $_POST['txtTags']);
+foreach ($aTags as $aTag) {
 
-try{
-  $sQuery = $db->prepare(' SELECT id FROM tags where name=:sTag ');
-  $sQuery->bindValue(':sTag', $aTag);
-  $sQuery->execute();
-  $aTagId = $sQuery->fetchAll();
-  $iTagId = $aTagId[0]["id"];
+  try {
+    $sQuery = $db->prepare(' SELECT id FROM tags where name=:sTag ');
+    $sQuery->bindValue(':sTag', $aTag);
+    $sQuery->execute();
+    $aTagId = $sQuery->fetchAll();
+    $iTagId = $aTagId[0]["id"];
+  } catch (PDOException $exception) {
+    echo '{"status":0, "message":"Tag origin could not be queried"}';
+  }
 
-}catch(PDOException $exception){
-  echo '{"status":0, "message":"Tag origin could not be queried"}';
-}
 
-
-try{
-  $sQuery = $db->prepare('INSERT INTO questions_tags VALUES(null, :iPostId, :iTagId)');
-  $sQuery->bindValue( ':iPostId', $iPostId );
-  $sQuery->bindValue( ':iTagId', $iTagId );
-  $sQuery->execute();
-  if( !$sQuery->rowCount() ){
+  try {
+    $sQuery = $db->prepare('INSERT INTO questions_tags VALUES(null, :iPostId, :iTagId)');
+    $sQuery->bindValue(':iPostId', $iPostId);
+    $sQuery->bindValue(':iTagId', $iTagId);
+    $sQuery->execute();
+    if (!$sQuery->rowCount()) {
+      $db->rollBack();
+      exit;
+    }
+  } catch (PDOException $ex) {
+    echo $ex;
     $db->rollBack();
     exit;
-  }    
-  
-}catch(PDOException $ex){
-  echo $ex;
-  $db->rollBack();
-  exit;
-}
-
-
-
+  }
 }
 // LOOP ENDED
 

@@ -1,5 +1,6 @@
 <?php
 require_once "components/top.php";
+require_once __DIR__ . '/class/token.php';
 ?>
 
 <div class="unit-5 overlay" style="background-image: url('images/hero_1.jpg');">
@@ -22,38 +23,39 @@ require_once "components/top.php";
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="Username">Username</label>
-              <input type="text" id="Username" name="txtUsername" class="form-control" value="eee">
+              <input type="text" id="Username" name="txtUsername" class="form-control" value="gfgf">
             </div>
           </div>
           <div class="row form-group mb-5">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="email">Email</label>
-              <input type="text" id="email" name="txtEmail" class="form-control" value="e@e.com">
+              <input type="text" id="email" name="txtEmail" class="form-control" value="edd@ed.com">
             </div>
           </div>
           <div class="row form-group mb-5">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="password">Password</label>
-              <input type="password" id="password" name="txtPassword" class="form-control" value="123456">
+              <input type="password" id="password" name="txtPassword" class="form-control" value="123ABCabc#">
             </div>
           </div>
           <div class="row form-group mb-5">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="confirm-password">Confirm Password</label>
-              <input type="password" id="confirm-password" name="txtConfirmPassword" class="form-control" value="123456">
+              <input type="password" id="confirm-password" name="txtConfirmPassword" class="form-control" value="123ABCabc#">
+
             </div>
           </div>
           <div class="g-recaptcha" data-sitekey="6LdDM6IUAAAAAD18nn5YfuEFt2nHUyFEbWLP5Xt-"></div>
 
           <div class="row form-group">
             <div class="col-md-12">
-            <span style="color:red;" class="passError"></span>
-            <br/>
+              <span style="color:red;" class="passError"></span>
+              <br />
               <input type="submit" value="Sign up" class="btn btn-primary  py-2 px-5">
             </div>
           </div>
 
-
+          <input type="hidden" name="token" value="<?= Token::generate() ?>">
         </form>
       </div>
     </div>

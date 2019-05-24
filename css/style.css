@@ -1452,9 +1452,8 @@ p.description {
 @media (min-width: 768px) {
   .tags-container {
     width: 450px;
-    border: 1px solid #333;
     display: inline-block;
-    border: 1px solid #ced4da;
+    border: none;
     border-radius: 0.25rem;
     margin-left: 0.9em;
     flex: 0 0 96%;
@@ -1537,6 +1536,6 @@ ul.dropdown-menu li {
   color: red;
 }
 
-.valid-response{
+.valid-response {
   color: green !important;
 }
