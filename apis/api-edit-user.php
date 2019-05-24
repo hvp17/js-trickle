@@ -36,8 +36,9 @@ if(
 $password = $_POST['txtPassword'];
 $options = [
   'cost' => 5,
-];
-$hashed_password =  password_hash($password, PASSWORD_DEFAULT, $options);
+];  
+$pepper = "s3cr3T3017@91";
+$hashed_password =  password_hash($password.$pepper, PASSWORD_DEFAULT, $options);
 
     //if password inserted
     try {
