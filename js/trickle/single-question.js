@@ -15,7 +15,7 @@ function escapeHtml(unsafe) {
 /*************************************************************************
 ::END ESCAPE STRING AGAINS XSS
 **************************************************************************/
-$(document).ready(function () {
+$(document).ready(function() {
   var questionId = $(".content").attr("id");
 
   $.ajax({
@@ -24,8 +24,7 @@ $(document).ready(function () {
       questionId: questionId
     },
     dataType: "JSON"
-  }).always(function (jData) {
-
+  }).always(function(jData) {
     $(".content").append(`
         <div class="unit-5 overlay" style="background-image: url('images/hero_2.jpg');">
       <div class="container text-center">
@@ -91,7 +90,7 @@ $(document).ready(function () {
             <h3>Your answer</h3>
 
             <form>
-            <textarea placeholder="Answer" id="txtAnswer"></textarea>
+            <textarea maxlength="250" placeholder="Answer" id="txtAnswer"></textarea>
             ${
               jData.isLoggedIn === 1
                 ? '<button type="button" class="btn btn-primary  py-2 px-4" id="btnAnswer">Submit answer</button>'
@@ -106,8 +105,7 @@ $(document).ready(function () {
       questionId: questionId
     },
     dataType: "JSON"
-  }).always(function (jData) {
-
+  }).always(function(jData) {
     for (var i in jData.answers) {
       $("#answers").prepend(`
     <div data-answer-id=${jData.answers[i].id} class="col-md-8 answer">
@@ -131,7 +129,7 @@ $(document).ready(function () {
   });
 });
 
-$(document).on("click", ".btnEditAnswer", function () {
+$(document).on("click", ".btnEditAnswer", function() {
   const answerBody = $(this).siblings(".answer-body");
 
   const answer_id = $(this)
@@ -151,16 +149,16 @@ $(document).on("click", ".btnEditAnswer", function () {
       },
       dataType: "JSON",
       method: "POST"
-    }).always(function (jData) {
+    }).always(function(jData) {
       $(answerBody).attr("contenteditable", false);
     });
     $(this).text("Edit");
   }
 });
 
-$(document).on("click", "#btnAnswer", function () {
+$(document).on("click", "#btnAnswer", function() {
   var questionId = $(".content").attr("id");
-  var token = $('input[type=hidden]').val();
+  var token = $("input[type=hidden]").val();
   var answer = $(this)
     .siblings()
     .val();
@@ -174,8 +172,7 @@ $(document).on("click", "#btnAnswer", function () {
     },
     dataType: "JSON",
     method: "POST"
-  }).always(function (jData) {
-
+  }).always(function(jData) {
     if (jData.code == 212) {
       $("p#response").removeClass("valid-response");
       $("p#response").text("You can not submit a blank answer.");

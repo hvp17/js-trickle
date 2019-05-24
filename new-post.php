@@ -50,7 +50,7 @@ require_once "components/top.php";
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="txtTitle">Title</label>
-              <input type="text" id="txtTitle" class="form-control" name="txtTitle" placeholder="eg. Full Stack Frontend" required>
+              <input maxlength="50" type="text" id="txtTitle" class="form-control" name="txtTitle" placeholder="eg. Full Stack Frontend" required>
             </div>
           </div>
 
@@ -113,7 +113,7 @@ require_once "components/top.php";
               <h3>Question</h3>
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
-              <textarea id="txtDescription" name="txtDescription" class="form-control" cols="30" rows="5" required></textarea>
+              <textarea maxlength="250" id="txtDescription" name="txtDescription" class="form-control" cols="30" rows="5" required></textarea>
               <input type="hidden" name="token" value="<?= Token::generate() ?>">
             </div>
           </div>
